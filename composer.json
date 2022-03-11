@@ -1,0 +1,47 @@
+{
+    "name": "cjpgdk/bitcoin-blk-parser",
+    "description": "A simple Bitcoin BLK block file parser/reader.",
+    "homepage": "https://github.com/cjpgdk/bitcoin-blk-parser",
+    "license": "MIT",
+    "keywords": ["parser", "reader", "Bitcoin", "blk file", "btc"
+    ],
+    "authors": [
+        {
+            "name": "Christian M. Jensen",
+            "email": "cmj@cjpg.dk",
+            "homepage": "https://cjpg.dk"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cjpg\\Bitcoin\\Blk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "actions": "composer test && composer analyse && composer check-style",
+        "test": "phpunit",
+        "analyse": "phpstan analyse src tests --level=9",
+        "check-style": "phpcs -p --standard=PSR12 --exclude=Generic.Files.LineLength --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR12 --exclude=Generic.Files.LineLength --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true
+}
