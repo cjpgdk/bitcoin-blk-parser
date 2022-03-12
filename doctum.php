@@ -17,6 +17,10 @@ $versions = GitVersionCollection::create($dir)
     ->add('master', 'Latest')
     ->add('develop', 'Develop');
 
+// delete old docs first
+rmdir(__DIR__ . '/../docs/bitcoin-blk-parser/*');
+rmdir(__DIR__ . '/../docs/cache/bitcoin-blk-parser/');
+
 return new Doctum($iterator, [
     'title'                => 'Bitcoin BLK block file parser/reader API',
     'versions'             => $versions,
