@@ -8,4 +8,5 @@
 # block file are just 'bitcoin-cli getblock HASH 2'
 # no need for them in git.
 *.block
+# i will add this file as a download from here!
 *.dat
