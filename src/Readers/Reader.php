@@ -113,6 +113,18 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     }
 
     /**
+     * Move to {@param $offset}.
+     * 
+     * @param int $offset
+     * @return static
+     */
+    public function moveTo(int $offset): self
+    {
+        $this->currentPosition = $offset;
+        return $this->current();
+    }
+
+    /**
      * Move forward to next element.
      */
     public function next(): void
