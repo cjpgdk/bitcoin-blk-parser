@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:referrer="http://a9.com/-/opensearch/extensions/referrer/">
+    <ShortName>Bitcoin BLK block file parser/reader API (master)</ShortName>
+    <Description>Searches Bitcoin BLK block file parser/reader API (master)</Description>
+    <Tags>Bitcoin BLK block file parser/reader API</Tags>
+    <Url type="text/html" method="GET" template="http://localhost/api/master/search.html?search={searchTerms}&amp;utm_source={referrer:source?}"/>
+    <InputEncoding>UTF-8</InputEncoding>
+    <AdultContent>false</AdultContent>
+</OpenSearchDescription>
