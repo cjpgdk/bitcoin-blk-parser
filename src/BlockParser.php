@@ -273,6 +273,7 @@ class BlockParser
      */
     public function block(bool $hex = false): string
     {
+        $this->block->rewind();
         $data = $this->block->getContents();
         return $hex ? bin2hex($data) : $data;
     }
