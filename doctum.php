@@ -22,9 +22,9 @@ return new Doctum($iterator, [
     'versions'             => $versions,
     'language'             => 'en',
     'source_dir'           => dirname($dir) . '/',
-    'build_dir'            => __DIR__ . '/../docs/build/%version%',
-    'cache_dir'            => __DIR__ . '/../docs/cache/%version%',
+    'build_dir'            => __DIR__ . '/../docs/bitcoin-blk-parser/%version%',
+    'cache_dir'            => __DIR__ . '/../docs/cache/bitcoin-blk-parser/%version%',
     'default_opened_level' => 2,
     'remote_repository'    => new GitHubRemoteRepository('cjpgdk/bitcoin-blk-parser', dirname(__DIR__)),
-    'base_url'             => 'http://localhost/api/%version%/',
+    'base_url'             => 'https://cjpgdk.github.io/bitcoin-blk-parser/%version%/',
 ]);
