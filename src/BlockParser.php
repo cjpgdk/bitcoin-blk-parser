@@ -64,15 +64,25 @@ class BlockParser
     }
 
     /**
+     * Get the transactions.
      * 
-     * @return \Generator<BlockTransactionReader>
+     * @return \Generator<int, \Cjpg\Bitcoin\Blk\TxParser>
      */
     public function transactions(): Generator
     {
         $txCount = $this->transactionCount();
-        
+        $pos = null;
         for($i = 0; $i < $txCount; ++$i) {
-            yield $i => TxParser::fromStream($this->block);
+            
+            if(!is_null($pos)) {
+                $this->block->seek($pos);
+            }
+            
+            $tx = TxParser::fromStream($this->block);
+            
+            $pos = $this->block->tell();
+            
+            yield $i => $tx;
         }
     }
     
