@@ -9,11 +9,9 @@ namespace Cjpg\Bitcoin\Blk;
  */
 class Utilities
 {
-
-
     /**
      * Run sha256 hash on $data twice
-     * 
+     *
      * @param string $data
      * @param bool $raw If true return the raw binary data.
      * @return string
@@ -26,7 +24,7 @@ class Utilities
 
     /**
      * Run sha256 hash on $data
-     * 
+     *
      * @param string $data
      * @param bool $raw If true return the raw binary data.
      * @return string
@@ -39,7 +37,7 @@ class Utilities
 
     /**
      * Swap endianness of an hexadecimal string.
-     * 
+     *
      * @param string $hex
      * @param bool $hexdec [Default true] convert from hex to decimal.
      * @return int|float|string

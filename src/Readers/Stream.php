@@ -10,24 +10,25 @@ use RuntimeException;
 
 /**
  * An internal stream class for reading the blk files.
- * 
+ *
  * @internal
  */
 final class Stream
 {
     /**
      * Set position equal to offset bytes.
+     * @
      */
-    const SEEK_SET = SEEK_SET;
+    public const SEEK_SET = SEEK_SET;
     /**
      * Set position to current location plus offset.
      */
-    const SEEK_CUR = SEEK_CUR;
+    public const SEEK_CUR = SEEK_CUR;
     /**
      * Set position to end-of-file plus offset.
      */
-    const SEEK_END = SEEK_END;
-    
+    public const SEEK_END = SEEK_END;
+
     /**
      * The underlying stream resource
      *
@@ -50,7 +51,11 @@ final class Stream
      */
     public function __construct($stream)
     {
-        if(!($stream instanceof Stream) && !is_resource($stream) && !in_array(get_resource_type($stream), ['stream', 'socket'])) {
+        if (
+            !($stream instanceof Stream) &&
+            !is_resource($stream) &&
+            !in_array(get_resource_type($stream), ['stream', 'socket'])
+        ) {
             throw new InvalidArgumentException('$stream must be a valid PHP stream or socket resource');
         }
         if ($stream instanceof Stream) {
@@ -152,7 +157,7 @@ final class Stream
     {
         if (!$this->stream) {
             $position = null;
-        } else if (($position = ftell($this->stream)) === false){
+        } elseif (($position = ftell($this->stream)) === false) {
             throw new RuntimeException('Unable get the position in the stream.');
         }
         return $position;
@@ -259,10 +264,10 @@ final class Stream
         }
         return strstr($mode, 'r') !== false || strstr($mode, '+') !== false;
     }
-    
+
     /**
      * Read a variable int.
-     * 
+     *
      * @return int
      */
     public function readVarInt(): int
@@ -338,7 +343,7 @@ final class Stream
         }
         return isset($meta[$key]) ? $meta[$key] : null;
     }
-    
+
     /**
      * Gets the stream into a string
      *
@@ -355,7 +360,7 @@ final class Stream
         }
         return $this->getContents();
     }
-    
+
     /**
      * Closes the stream.
      *

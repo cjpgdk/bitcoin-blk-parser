@@ -7,20 +7,20 @@ class Data
     /**
      * Flag that tells the test to compare the full transactions
      * with data from bitcoin-cli getblock output.
-     * 
+     *
      * Since the json output for the current 7 blocks are some ~38mb
      * I have excluded them from git!
-     * 
-     * To run the test set this to true and fetch the json data into 
+     *
+     * To run the test set this to true and fetch the json data into
      * `tests/data/[HASH].block`.
-     * 
+     *
      * ```sh
      * # bitcoin datadir / configuration dir.
      * export BTCDATADIR=/some/path/4/bitcoin/data/if/needed
-     * 
+     *
      * bitcoin-cli -datadir=${BTCDATADIR} getblock [HASH] 2 > tests/data/[HASH].block
      * ```
-     * 
+     *
      * @var bool
      */
     public static $compareTxData = false;
@@ -28,7 +28,7 @@ class Data
 
     /**
      * blkmain0.dat from main net.
-     * 
+     *
      * @var array<array<mixed>>
      */
     public static $blocks = [
@@ -67,7 +67,7 @@ class Data
             // 'difficulty'   => 47427554950.6483,
             // for the tests we remove presistion or it will fail
             //  by one decimal to many or to little.
-            'difficulty'   => 47427554950, 
+            'difficulty'   => 47427554950,
         ],
         // 2015-03-10 09:47:04 (346977)
         [
@@ -87,7 +87,7 @@ class Data
             // 'difficulty'   => 47427554950.6483,
             // for the tests we remove presistion or it will fail
             //  by one decimal to many or to little.
-            'difficulty'   => 47427554950, 
+            'difficulty'   => 47427554950,
         ],
         // 2015-03-10 10:20:49 (346979)
         [
@@ -107,7 +107,7 @@ class Data
             // 'difficulty'   => 47427554950.6483,
             // for the tests we remove presistion or it will fail
             //  by one decimal to many or to little.
-            'difficulty'   => 47427554950, 
+            'difficulty'   => 47427554950,
         ],
         // 2021-03-10 09:41:18 (673988)
         [
@@ -170,5 +170,4 @@ class Data
             'difficulty'   => 27550332084343
         ]
     ];
-
 }

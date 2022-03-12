@@ -15,7 +15,6 @@ use Iterator;
  */
 abstract class Reader implements Countable, ArrayAccess, Iterator
 {
-
     /**
      * The current item in use by the iterator.
      * @var mixed
@@ -24,55 +23,55 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * The current position of the iterator.
-     * 
+     *
      * @var int
      */
     protected int $currentPosition;
 
     /**
      * The items from which the reader can read.
-     * 
+     *
      * @var array<mixed>
      */
     protected array $items;
 
     /**
      * A custom function to format the items in the list.
-     * 
+     *
      * This is used to append/pre-pend or change the output
      * of the items from offsetGet($key) and current().
-     * 
+     *
      * @var callable|null
      * @see \Cjpg\Bitcoin\Blk\Readers\Reader::setOffsetGetFormatter($callable)
      */
     protected $offsetGetFormatter;
-    
+
     /**
      * Loads the data into the reader.
-     * 
+     *
      * @return static
      */
     abstract public function loadData(): self;
 
     /**
      * Set the item output formatter.
-     * 
+     *
      * ```php
      * $filesPath = "/home/nisse/storeage";
-     * 
+     *
      * $readerObj = new CustomReader();
-     * 
+     *
      * $readerObj->setOffsetGetFormatter(function($item) use ($filesPath){
      *     return $filesPath.DIRECTORY_SEPARATOR.$item;
      * });
-     * 
+     *
      * $readerObj->offsetSet(0, 'file0.txt');
-     * 
+     *
      * $file0 = $readerObj->current();
      * // echo $file0; // == /home/nisse/storeage/file0.txt
-     * 
+     *
      * ```
-     * 
+     *
      * @param callable $callable
      * @return static
      */
@@ -94,7 +93,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * Get the current element.
-     * 
+     *
      * @return static
      */
     public function current(): self
@@ -105,7 +104,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * Get the key of the current element.
-     * 
+     *
      * @return int
      */
     public function key(): int
@@ -139,7 +138,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * Check if an offset($key) exists.
-     * 
+     *
      * @param mixed $key
      * @return bool
      */
@@ -150,7 +149,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * Get the item at offset($key).
-     * 
+     *
      * @param mixed $key
      * @return mixed
      */
@@ -184,5 +183,4 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     {
         unset($this->items[$key]);
     }
-
 }
