@@ -85,6 +85,7 @@ class BlkReader extends Reader
      * ```
      * 
      * @return \Generator<int, \Cjpg\Bitcoin\Blk\BlockParser>
+     * @throws \RuntimeException The blk folder do not exists
      */
     public function blocks(): Generator
     {
@@ -93,6 +94,9 @@ class BlkReader extends Reader
         $this->current(); 
 
         $fStream = Stream::fromFile($this->currentItem);
+        if (!$fStream) {
+            throw new RuntimeException("Unable read from file [{$this->currentItem}]");
+        }
         $idx = 0;
         while($fStream->read(4) == $this->magicBytes) {
             
@@ -125,9 +129,10 @@ class BlkReader extends Reader
      * | signet | 0x40CF030A | "\x0A\x03\xCF\x40" |
      * 
      * @param string $magicBytes
+     * @return void
      * @link https://en.bitcoin.it/wiki/Protocol_documentation Known magic values
      */
-    public function setMagicBytes(string $magicBytes) 
+    public function setMagicBytes(string $magicBytes): void
     {
         $this->magicBytes = $magicBytes;
     }
@@ -140,6 +145,10 @@ class BlkReader extends Reader
      */
     public function loadData(): self
     {
+        $files = glob($this->blkFolder.DIRECTORY_SEPARATOR."blk*.dat");
+        if (!$files) {
+            return $this;
+        }
         $this->items = array_map(function($item) {
                 // This allows input folder to be '/path../' and '/path..'
                 return ltrim(
@@ -147,7 +156,7 @@ class BlkReader extends Reader
                     DIRECTORY_SEPARATOR
                 );
             },
-            glob($this->blkFolder.DIRECTORY_SEPARATOR."blk*.dat")
+            $files
         );
         return $this;
     }

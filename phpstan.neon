@@ -1,0 +1,18 @@
+parameters:
+    treatPhpDocTypesAsCertain: false
+
+    ignoreErrors:
+        - '#Method .* should return (float|int|string) but returns float\|int\|string#'
+        - '#Parameter .* expects .* float\|int\|string given#'
+        - '#Parameter \#2 \$length of function fread expects int\<0, max\>, int given#'
+
+
+
+    excludePaths:
+        - tests/*/data/*
+
+    level: 8
+
+    paths:
+        - src/
+        - tests/

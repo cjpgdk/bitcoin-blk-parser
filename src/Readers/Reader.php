@@ -10,6 +10,8 @@ use Iterator;
 
 /**
  * Base of the reader classes.
+ * @implements \ArrayAccess<int, mixed>
+ * @implements \Iterator<static>
  */
 abstract class Reader implements Countable, ArrayAccess, Iterator
 {
@@ -30,7 +32,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     /**
      * The items from which the reader can read.
      * 
-     * @var array
+     * @var array<mixed>
      */
     protected array $items;
 
@@ -93,7 +95,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     /**
      * Get the current element.
      * 
-     * @return statis
+     * @return static
      */
     public function current(): self
     {
@@ -138,7 +140,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     /**
      * Check if an offset($key) exists.
      * 
-     * @param string $key
+     * @param mixed $key
      * @return bool
      */
     public function offsetExists($key): bool
@@ -149,7 +151,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     /**
      * Get the item at offset($key).
      * 
-     * @param string $key
+     * @param mixed $key
      * @return mixed
      */
     public function offsetGet($key): mixed

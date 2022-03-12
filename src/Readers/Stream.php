@@ -13,7 +13,7 @@ use RuntimeException;
  * 
  * @internal
  */
-class Stream
+final class Stream
 {
     /**
      * Set position equal to offset bytes.
@@ -46,14 +46,14 @@ class Stream
      * if $stream is a {@see IStream}
      * it will be rewinded and detached from the source
      *
-     * @param resource|IStream $stream
+     * @param resource|\Cjpg\Bitcoin\Blk\Readers\Stream $stream
      */
     public function __construct($stream)
     {
-        if (!is_resource($stream) && !in_array(get_resource_type($stream), ['stream', 'socket']) && !($stream instanceof IStream)) {
+        if(!($stream instanceof Stream) && !is_resource($stream) && !in_array(get_resource_type($stream), ['stream', 'socket'])) {
             throw new InvalidArgumentException('$stream must be a valid PHP stream or socket resource');
         }
-        if ($stream instanceof IStream) {
+        if ($stream instanceof Stream) {
             if ($stream->isSeekable()) {
                 $stream->rewind();
             }
@@ -70,7 +70,7 @@ class Stream
      * if you do not call {@see Stream::close()} the file will remain on the system.
      *
      * @param string $string
-     * @return static|null returns null if fopen php://temp fails
+     * @return \Cjpg\Bitcoin\Blk\Readers\Stream|null returns null if fopen php://temp fails
      */
     public static function fromString(string $string = ''): Stream|null
     {
@@ -87,9 +87,9 @@ class Stream
      *
      * @param string $filename Filename or stream URI to use as basis of stream.
      * @param string $mode Mode with which to open the underlying filename/stream.
-     * @return static|null
+     * @return \Cjpg\Bitcoin\Blk\Readers\Stream|null
      */
-    public static function fromFile(string $filename, string $mode = 'r+'): Stream|null
+    public static function fromFile(string $filename, string $mode = 'r+'): ?Stream
     {
         if (!file_exists($filename) || !is_file($filename)) {
             throw new RuntimeException(sprintf('File [%s] does not exists.', $filename));
@@ -135,6 +135,7 @@ class Stream
     {
         if ($this->stream && $this->size === null) {
             if ($stats = fstat($this->stream)) {
+                /** @phpstan-ignore-next-line */
                 $this->size = isset($stats['size']) ? $stats['size'] : 0;
             }
         }
@@ -144,10 +145,10 @@ class Stream
     /**
      * Returns the current position of the file read/write pointer
      *
-     * @return int Position of the file pointer
+     * @return int|null Position of the file pointer
      * @throws \RuntimeException on error.
      */
-    public function tell(): int
+    public function tell(): ?int
     {
         if (!$this->stream) {
             $position = null;
@@ -208,7 +209,7 @@ class Stream
      */
     public function rewind(): void
     {
-        if (!$this->isSeekable()) {
+        if (!$this->stream || !$this->isSeekable()) {
             throw new RuntimeException('Could not rewind stream.');
         }
         rewind($this->stream);
@@ -236,7 +237,7 @@ class Stream
      */
     public function write(string $string): int
     {
-        if (!$this->isWritable()) {
+        if (!$this->stream || !$this->isWritable()) {
             throw new RuntimeException('Current stream is not writable.');
         }
         if (($written = fwrite($this->stream, $string)) === false) {
@@ -289,7 +290,7 @@ class Stream
      */
     public function read(int $length): string
     {
-        if (!$this->isReadable() || ($data = fread($this->stream, $length)) === false) {
+        if (!$this->stream || !$this->isReadable() || ($data = fread($this->stream, $length)) === false) {
             throw new RuntimeException('The stream is not readable.');
         }
         return $data;
@@ -328,6 +329,7 @@ class Stream
      */
     public function getMetadata(string $key = null)
     {
+        /** @phpstan-ignore-next-line */
         if (!$this->stream || !($meta = stream_get_meta_data($this->stream))) {
             return null;
         }

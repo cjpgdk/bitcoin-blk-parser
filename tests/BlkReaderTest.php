@@ -11,7 +11,7 @@ final class BlkReaderTest extends TestCase
 {
     
     
-    public function testBlkReaderConstructs()
+    public function testBlkReaderConstructs(): BlkReader
     {
         $dataDir = __DIR__.'/data/';
         $reader = new BlkReader($dataDir, true);
@@ -31,7 +31,7 @@ final class BlkReaderTest extends TestCase
     /**
      * @depends testBlkReaderConstructs
      */
-    public function testBlkReaderBlockLoop(BlkReader $reader)
+    public function testBlkReaderBlockLoop(BlkReader $reader): void
     {
         // make sure we are at the begining.
         $reader->rewind();
@@ -56,13 +56,13 @@ final class BlkReaderTest extends TestCase
     /**
      * @depends testBlkReaderConstructs
      */
-    public function testBlkReaderBlockLoopSimple(BlkReader $reader)
+    public function testBlkReaderBlockLoopSimple(BlkReader $reader): void
     {
         // make sure we are at the begining.
         $reader->rewind();
         
         foreach ($reader as $blkReader) {
-           
+            $this->assertInstanceOf(BlkReader::class, $blkReader);
             $this->assertSame($reader, $blkReader);
             
             // loop blocks

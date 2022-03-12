@@ -26,7 +26,11 @@ class Data
     public static $compareTxData = false;
 
 
-    // blkmain0.dat from main net.
+    /**
+     * blkmain0.dat from main net.
+     * 
+     * @var array<array<mixed>>
+     */
     public static $blocks = [
         // 2009-01-03 18:15:05 (0)
         [

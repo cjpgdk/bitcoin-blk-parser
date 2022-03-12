@@ -50,6 +50,9 @@ class Utilities
             return $hexdec ? hexdec($hex) : $hex;
         }
         $u = unpack("H*", strrev(pack("H*", $hex)));
+        if (!$u) {
+            return $hexdec ? 0 : '';
+        }
         return $hexdec ? hexdec($u[1]) : $u[1];
     }
 }

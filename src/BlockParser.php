@@ -6,6 +6,7 @@ namespace Cjpg\Bitcoin\Blk;
 
 use Cjpg\Bitcoin\Blk\Readers\Stream;
 use Generator;
+use RuntimeException;
 
 /**
  * BlockParser reads the raw block data extracted from blk files.
@@ -23,9 +24,9 @@ class BlockParser
     /**
      * The block bytes we read from.
      * 
-     * @var Stream|null
+     * @var Stream
      */
-    protected ?Stream $block;
+    protected Stream $block;
 
     /**
      * The magic bytes that indicates the block start and type.
@@ -50,7 +51,6 @@ class BlockParser
      */
     public function __construct(string $block, ?int $size = null, ?string $magicBytes = null)
     {
-        $this->block = null;
         if ($resource = fopen('php://memory', 'rwb')) {
             fwrite($resource, $block);
             rewind($resource);
@@ -132,7 +132,7 @@ class BlockParser
     /**
      * Get the block difficulty.
      * 
-     * @return string|float decimal value that may be a string or float.
+     * @return int|float
      */
     public function difficulty(): int|float
     {        
@@ -286,29 +286,27 @@ class BlockParser
      */
     public function size(): int
     {
-        return $this->size;
+        return (int)$this->size;
     }
 
     /**
      * Gets the magic bytes.
      *
-     * @return string Binary string.
+     * @return string|null Binary string.
      */
-    public function magicBytes(): string
+    public function magicBytes(): ?string
     {
         return $this->magicBytes;
     }
     
     /**
      * Ends the reader and releases the underlying memory stream.
+     * @return void
      */
-    public function end()
+    public function end(): void
     {
-        if ($this->block) {
-            $this->block->close();
-        }
-        
-        $this->block = $this->size = $this->magicBytes = null;
+        $this->block->close();
+        $this->size = $this->magicBytes = null;
     }
     
     

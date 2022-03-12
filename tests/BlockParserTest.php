@@ -10,7 +10,7 @@ use Test\Data;
 final class BlockParserTest extends TestCase
 {
     
-    public function testConstructBlkReader()
+    public function testConstructBlkReader(): BlkReader
     {
         $dataDir = __DIR__.'/data/';
         $reader = new BlkReader($dataDir, true);
@@ -23,7 +23,7 @@ final class BlockParserTest extends TestCase
     /**
      * @depends testConstructBlkReader
      */
-    public function testBlockParser(BlkReader $reader)
+    public function testBlockParser(BlkReader $reader): void
     {
         // make sure we are at the begining.
         $reader->rewind();

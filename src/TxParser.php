@@ -85,8 +85,9 @@ class TxParser
      * ```json
      * [
      *  {
-     *    //* For coinbase transaction the txid is 64 zeroes (0)
+     *    //* For coinbase transaction the txid is removed
      *    "txid": "HEX",
+     *    //* For coinbase transaction the vout is removed
      *    "vout": NUMBER,
      *    //* Only for coinbase transaction (the first tx)
      *    "coinbase": "HEX String",
@@ -102,7 +103,7 @@ class TxParser
      * 
      * ```
      * 
-     * @var array
+     * @var array<mixed>
      */
     public readonly array $inputs;
     
@@ -133,7 +134,7 @@ class TxParser
      *   ...
      * ]
      * 
-     * @var array
+     * @var array<mixed>
      */
     public readonly array $outputs;
     
@@ -147,9 +148,9 @@ class TxParser
     /**
      * The full transaction as a hexadecimal value.
      * 
-     * @var string
+     * @var string|null
      */
-    public readonly string $hex;
+    public readonly ?string $hex;
     
     /**
      * The transaction weight
@@ -158,10 +159,21 @@ class TxParser
      */
     public readonly int $weight;
 
-    /*
-      "": 3206
+    /**
+     * 
+     * @param string $txid
+     * @param string $hash
+     * @param int $size
+     * @param int $vsize
+     * @param int $locktime
+     * @param int $version
+     * @param int $inputCount
+     * @param array<mixed> $inputs
+     * @param int $outputCount
+     * @param array<mixed> $outputs
+     * @param string|null $hex
+     * @param bool $segwit
      */
-
     public function __construct(string $txid, string $hash, int $size, 
             int $vsize, int $locktime, int $version, int $inputCount, 
             array $inputs,  int $outputCount, array $outputs, 
@@ -181,7 +193,7 @@ class TxParser
         $this->hex = $hex;
         $this->segwit = $segwit;
         
-        $this->weight = $this->size * 3 + $this->vsize;
+        $this->weight = $this->vsize * 3 + $this->size;
     }
     /**
      * Reads the transaction data from the stream.
@@ -189,9 +201,9 @@ class TxParser
      * *Note that the stream must be positioned at transaction start.*
      * 
      * @param Stream $block
-     * @return static
+     * @return \Cjpg\Bitcoin\Blk\TxParser
      */
-    public static function fromStream(Stream $block): self
+    public static function fromStream(Stream $block): TxParser
     {
         // for later to calculate the tx hash/txid
         $pos = $block->tell();
@@ -233,6 +245,7 @@ class TxParser
         
         // Finish reading this transaction, get tx id (hash)
         $currentP = $block->tell();
+        /** @phpstan-ignore-next-line */
         $block->seek($pos);
         
         if($segwit) {
@@ -255,8 +268,10 @@ class TxParser
 
             
             // the full tx data!
+            /** @phpstan-ignore-next-line */
             $block->seek($pos);
             $txData = $block->read($currentP - $pos);
+            /** @phpstan-ignore-next-line */
             $block->seek($currentP);
             
             // tx id.
@@ -265,7 +280,10 @@ class TxParser
             $hash  = Utilities::swapEndian(Utilities::hash256($txData), false);
             $hex   = bin2hex($txData);
             $size  = strlen($txData);
+            // WITNESS_SCALE_FACTOR = 4
+            // ((strlen($buf) * 3 + $size) + 3) / 4;
             $vsize = strlen($buf);
+            
         } else {
             $txData = $block->read($currentP - $pos);
             $txid   = Utilities::swapEndian(Utilities::hash256($txData), false);
@@ -275,7 +293,7 @@ class TxParser
             $vsize  = $size;
         }
         
-        return new static(
+        return new TxParser(
             $txid, $hash, $size, $vsize, $locktime, $version,
             $inputCount, $inputs, $outputCount, $outputs, $hex, $segwit
         );
@@ -286,13 +304,13 @@ class TxParser
      * 
      * @param Stream $block
      * @param int $inputCount
-     * @param array $inputs
+     * @param array<mixed> $inputs
      * @param int|null $ps
      * @param int|null $pe
-     * @return array
+     * @return void
      */
     protected static function readWitnessesFromStream(Stream $block, 
-            int $inputCount, array & $inputs, ?int & $ps, ?int & $pe)
+            int $inputCount, array & $inputs, ?int & $ps, ?int & $pe): void
     {
         // for later to calculate the tx hash/txid
         $ps = $block->tell();
@@ -302,7 +320,12 @@ class TxParser
             $witnessCount = $block->readVarInt();
             for ($j = 0; $j < $witnessCount; $j++) {
                 $read = $block->readVarInt();
-                $inputs[$i]['witness'][$i] = $read<=0?'':bin2hex($block->read($read));
+                $inputs[$i]['witness'][$j] = $read<=0?'':bin2hex($block->read($read));
+            }
+            
+            // btc core removes empty witness so we do the same.
+            if(empty($inputs[$i]['witness'])) {
+                unset($inputs[$i]['witness']);
             }
         }
 
@@ -316,7 +339,7 @@ class TxParser
      * 
      * @param Stream $block
      * @param int $outputCount
-     * @return array
+     * @return array<mixed>
      */
     protected static function readOutputsFromStream(Stream $block, int $outputCount): array
     {
@@ -340,7 +363,7 @@ class TxParser
      * @param Stream $block
      * @param int $inputsCount
      * @param bool $segwit
-     * @return array
+     * @return array<mixed>
      */
     protected static function readInputsFromStream(Stream $block, int $inputsCount, bool $segwit): array
     {
@@ -369,6 +392,7 @@ class TxParser
             if($inputs[$i]['txid'] == '0000000000000000000000000000000000000000000000000000000000000000') {
                 // Coin base tx.
                 unset($inputs[$i]['txid']);
+                unset($inputs[$i]['vout']);
                 $inputs[$i]['coinbase'] = bin2hex($indputData);
             } else {
                 // @todo make a quick script package and use!
