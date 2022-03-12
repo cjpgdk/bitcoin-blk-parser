@@ -264,7 +264,7 @@ class Stream
      * 
      * @return int
      */
-    public function getVarInt(): int
+    public function readVarInt(): int
     {
         $size = ord($this->read(1));
         if ($size == 253) {
@@ -285,7 +285,7 @@ class Stream
      *     call returns fewer bytes.
      * @return string Returns the data read from the stream, or an empty string
      *     if no bytes are available.
-     * @throws \RuntimeException if an error occurs.
+     * @throws \RuntimeException The stream is not readable.
      */
     public function read(int $length): string
     {

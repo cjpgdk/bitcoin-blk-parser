@@ -4,3 +4,7 @@
 /.phpunit.result.cache
 /composer.lock
 /vendor
+
+# block file are just 'bitcoin-cli getblock HASH 2'
+# no need for them in git.
+*.block

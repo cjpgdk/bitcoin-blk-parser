@@ -34,6 +34,7 @@ final class BlockParserTest extends TestCase
         foreach ($reader->blocks() as $idx => $block) {
             // id must id correct.
             $this->assertSame($blockCount++, $idx);
+            
             // the block must be BlockParser object.
             $this->assertInstanceOf(BlockParser::class, $block);
             
@@ -42,6 +43,42 @@ final class BlockParserTest extends TestCase
             
             // transactionCount
             $this->assertSame(Data::$blocks[$idx]['ntx'], $block->transactionCount());
+            
+            // timestamp
+            $this->assertSame(Data::$blocks[$idx]['ts'], $block->timestamp());
+            
+            // merkleRoot
+            $this->assertSame(Data::$blocks[$idx]['merkle_root'], $block->merkleRoot());
+            
+            // prevBlock
+            $this->assertSame(Data::$blocks[$idx]['prev_block'], $block->previousBlock());
+            
+            // version
+            $this->assertSame(Data::$blocks[$idx]['version'], $block->version());
+            
+            // versionHex
+            $this->assertSame(Data::$blocks[$idx]['versionHex'], $block->versionHex());
+            
+            // nonce
+            $this->assertSame(Data::$blocks[$idx]['nonce'], $block->nonce());
+            
+            // bits
+            $this->assertSame(Data::$blocks[$idx]['bits'], $block->bits());
+            
+            // bitsHex
+            $this->assertSame(Data::$blocks[$idx]['bitsHex'], $block->bitsHex());
+            
+            // size
+            $this->assertSame(Data::$blocks[$idx]['size'], $block->size());
+            
+            // difficulty
+            $this->assertSame(Data::$blocks[$idx]['difficulty'], (int)$block->difficulty());
+            
+            // strippedsize
+            $this->assertSame(Data::$blocks[$idx]['strippedsize'], $block->strippedSize());
+            
+            // weight
+            $this->assertSame(Data::$blocks[$idx]['weight'], $block->weight());
         }
         
         // check that we got all the expected blocks.

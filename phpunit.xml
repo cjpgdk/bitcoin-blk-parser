@@ -6,8 +6,7 @@
 >
     <testsuites>
         <testsuite name="Defaults">
-            <file>./tests/BlkReaderTest.php</file>
-            <file>./tests/BlockParserTest.php</file>
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
