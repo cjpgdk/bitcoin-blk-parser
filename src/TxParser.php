@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cjpg\Bitcoin\Blk;
 
 use Cjpg\Bitcoin\Blk\Readers\Stream;
