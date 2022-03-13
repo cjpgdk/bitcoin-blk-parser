@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Cjpg\Bitcoin\Blk\BlockParser | Bitcoin BLK block file parser/reader API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+        <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (master)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/develop/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (develop)" />
+    </head>
+
+    <body id="class" data-name="class:Cjpg_Bitcoin_Blk_BlockParser" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../v0.1/index.html"
+                            data-version="v0.1" >v0.1</option>
+                                            <option
+                            value="../../../../v0.2/index.html"
+                            data-version="v0.2" selected>v0.2</option>
+                                            <option
+                            value="../../../../master/index.html"
+                            data-version="master" >Latest</option>
+                                            <option
+                            value="../../../../develop/index.html"
+                            data-version="develop" >Develop</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Bitcoin BLK block file parser/reader API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../v0.1/index.html" data-version="v0.1">v0.1</a></li>
+                        <li class="active"><a href="../../../../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../../../../master/index.html" data-version="master">Latest</a></li>
+                        <li ><a href="../../../../develop/index.html" data-version="develop">Develop</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../Cjpg.html">Cjpg</a></li><li class="backslash">\</li><li><a href="../../../Cjpg/Bitcoin.html">Bitcoin</a></li><li class="backslash">\</li><li><a href="../../../Cjpg/Bitcoin/Blk.html">Blk</a></li><li class="backslash">\</li><li>BlockParser</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>BlockParser    
+            </h1>
+    </div>
+
+    
+    <p>        class
+    <strong>BlockParser</strong>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php">View source</a>)
+</p>
+
+        
+    
+        
+
+            <div class="description">
+            <p><p>BlockParser reads the raw block data extracted from blk files.</p></p>            <p><p><strong>NOTE: These requires knowledge of more than just one block in the chain, this is not a db just a reader/parser.</strong></p>
+<ol>
+<li>height (<code>calculated based on knowing the prev block hash back to genesis.</code>)</li>
+<li>confirmations (<code>total blocks - height</code>)</li>
+<li>median time (<code>MEDIAN([time, of, past, 11, blocks])</code>)</li>
+<li>chain work (<code>requires knowledge of the prev blocks chain work</code>)</li>
+<li>next block hash (<code>it's in the name we need the next block in the chain to tell us</code>)</li>
+</ol></p>        </div>
+            
+        
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_block">
+                                        protected                                        <a href="../../../Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a>
+                                                                                
+                                    </td>
+                <td>$block</td>
+                <td class="last"><p>The block bytes we read from.</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_magicBytes">
+                                        protected                                        string|null
+                                                                                
+                                    </td>
+                <td>$magicBytes</td>
+                <td class="last"><p>The magic bytes that indicates the block start and type.</p></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_size">
+                                        protected                                        int|null
+                                                                                
+                                    </td>
+                <td>$size</td>
+                <td class="last"><p>The block size.</p></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(string $block, int|null $size = null, string|null $magicBytes = null)
+        
+                                            <p><p>Initialize a new instance of the bitcoin block parser class.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_transactions">transactions</a>()
+        
+                                            <p><p>Get the transactions.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_weight">weight</a>()
+        
+                                            <p><p>The block weight.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasSegwit">hasSegwit</a>()
+        
+                                            <p><p>Check if the block contains any segregated witness transactions.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_strippedSize">strippedSize</a>()
+        
+                                            <p><p>Get the stripped size of the block, that is the size of the block
+without witness data.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_difficulty">difficulty</a>()
+        
+                                            <p><p>Get the block difficulty.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_transactionCount">transactionCount</a>()
+        
+                                            <p><p>Get the transaction count.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_blockHash">blockHash</a>()
+        
+                                            <p><p>Gets the block hash</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_nonce">nonce</a>()
+        
+                                            <p><p>Get the block nonce.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_bits">bits</a>()
+        
+                                            <p><p>Get the block bits.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_bitsHex">bitsHex</a>()
+        
+                                            <p><p>Get the block bits as hexadecimal.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_timestamp">timestamp</a>()
+        
+                                            <p><p>Gets the block timestamp.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_merkleRoot">merkleRoot</a>()
+        
+                                            <p><p>Gets the merkle root of the block.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_previousBlock">previousBlock</a>()
+        
+                                            <p><p>Gets the previous block hash.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_version">version</a>()
+        
+                                            <p><p>Gets the block version.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_versionHex">versionHex</a>()
+        
+                                            <p><p>Gets the block version as hexadecimal.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_block">block</a>(bool $hex = false)
+        
+                                            <p><p>Gets the raw block.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_size">size</a>()
+        
+                                            <p><p>Gets the size of the block in bytes.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_magicBytes">magicBytes</a>()
+        
+                                            <p><p>Gets the magic bytes.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_end">end</a>()
+        
+                                            <p><p>Ends the reader and releases the underlying memory stream.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___destruct">__destruct</a>()
+        
+                                            <p><p>Closes the stream.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L52">at line 52</a></div>
+        <code>                    
+    <strong>__construct</strong>(string $block, int|null $size = null, string|null $magicBytes = null)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Initialize a new instance of the bitcoin block parser class.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$block</td>
+                <td><p>The block bytes (binary string!).</p></td>
+            </tr>
+                    <tr>
+                <td>int|null</td>
+                <td>$size</td>
+                <td><p>[Optional] The block size.</p></td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$magicBytes</td>
+                <td><p>[Optional] The magic bytes for this block (binary string!).</p></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_transactions">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L71">at line 71</a></div>
+        <code>                    <a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a>
+    <strong>transactions</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the transactions.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" rel="noopener" href="https://www.php.net/Generator">Generator</a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_weight">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L94">at line 94</a></div>
+        <code>                    int
+    <strong>weight</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>The block weight.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasSegwit">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L104">at line 104</a></div>
+        <code>                    bool
+    <strong>hasSegwit</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Check if the block contains any segregated witness transactions.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_strippedSize">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L120">at line 120</a></div>
+        <code>                    int
+    <strong>strippedSize</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the stripped size of the block, that is the size of the block
+without witness data.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_difficulty">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L136">at line 136</a></div>
+        <code>                    <abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr>
+    <strong>difficulty</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the block difficulty.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_transactionCount">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L158">at line 158</a></div>
+        <code>                    int
+    <strong>transactionCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the transaction count.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_blockHash">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L169">at line 169</a></div>
+        <code>                    string
+    <strong>blockHash</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the block hash</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_nonce">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L183">at line 183</a></div>
+        <code>                    int
+    <strong>nonce</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the block nonce.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_bits">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L194">at line 194</a></div>
+        <code>                    int
+    <strong>bits</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the block bits.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_bitsHex">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L205">at line 205</a></div>
+        <code>                    string
+    <strong>bitsHex</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get the block bits as hexadecimal.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_timestamp">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L216">at line 216</a></div>
+        <code>                    int
+    <strong>timestamp</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the block timestamp.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_merkleRoot">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L227">at line 227</a></div>
+        <code>                    string
+    <strong>merkleRoot</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the merkle root of the block.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_previousBlock">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L238">at line 238</a></div>
+        <code>                    string
+    <strong>previousBlock</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the previous block hash.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_version">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L249">at line 249</a></div>
+        <code>                    int
+    <strong>version</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the block version.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_versionHex">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L260">at line 260</a></div>
+        <code>                    string
+    <strong>versionHex</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the block version as hexadecimal.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_block">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L274">at line 274</a></div>
+        <code>                    string
+    <strong>block</strong>(bool $hex = false)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the raw block.</p></p>                <p><p><em>Note that magic bytes and size variable are striped from the block.</em></p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$hex</td>
+                <td><p>get the block as hex string or binary string.</p></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_size">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L286">at line 286</a></div>
+        <code>                    int
+    <strong>size</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the size of the block in bytes.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_magicBytes">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L296">at line 296</a></div>
+        <code>                    string|null
+    <strong>magicBytes</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the magic bytes.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td><p>Binary string.</p></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_end">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L305">at line 305</a></div>
+        <code>                    void
+    <strong>end</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Ends the reader and releases the underlying memory stream.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___destruct">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.2/src/BlockParser.php#L318">at line 318</a></div>
+        <code>                    
+    <strong>__destruct</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Closes the stream.</p></p>                        
+        </div>
+        <div class="tags">
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="../../../Cjpg/Bitcoin/Blk/BlockParser.html#method_end">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::end</a>
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>
