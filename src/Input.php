@@ -77,6 +77,16 @@ class Input
     }
 
     /**
+     * Check if this is a coinbase input.
+     *
+     * @return bool
+     */
+    public function isCoinbase(): bool
+    {
+        return $this->type == InputType::COINBASE;
+    }
+
+    /**
      * Create an instance of Input class from a simple array
      *
      * @template TValue
