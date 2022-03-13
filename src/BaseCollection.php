@@ -121,16 +121,6 @@ abstract class BaseCollection implements ArrayAccess, Countable, JsonSerializabl
     }
 
     /**
-     * Get an iterator.
-     *
-     * @return \ArrayIterator<TKey, TValue>
-     */
-    public function getIterator(): Traversable
-    {
-        return new ArrayIterator($this->items);
-    }
-
-    /**
      * Check if an offset($key) exists.
      *
      * @param TKey $key
