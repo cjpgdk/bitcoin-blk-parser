@@ -4,6 +4,7 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
+use Cjpg\Bitcoin\Blk\InputType;
 use Test\Data;
 
 final class TxParserTest extends TestCase
@@ -137,18 +138,18 @@ final class TxParserTest extends TestCase
 
                 // inputs
                 foreach ($tx->inputs as $vi => $vin) {
-                    if (isset($vin['coinbase'])) {
-                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin['coinbase']);
+                    if ($vin->type == InputType::COINBASE) {
+                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin->scriptSig);
                     } else {
-                        $this->assertSame($blockTx->vin[$vi]->txid, $vin['txid']);
-                        $this->assertSame($blockTx->vin[$vi]->vout, $vin['vout']);
-                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin['script_sig']);
+                        $this->assertSame($blockTx->vin[$vi]->txid, $vin->txid);
+                        $this->assertSame($blockTx->vin[$vi]->vout, $vin->vout);
+                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin->scriptSig);
                     }
 
-                    $this->assertSame($blockTx->vin[$vi]->sequence, $vin['sequence']);
+                    $this->assertSame($blockTx->vin[$vi]->sequence, $vin->sequence);
 
-                    if (isset($vin['witness'])) {
-                        $this->assertSame($blockTx->vin[$vi]->txinwitness, $vin['witness']);
+                    if ($vin->witness) {
+                        $this->assertSame($blockTx->vin[$vi]->txinwitness, $vin->witness);
                     }
                 }
 

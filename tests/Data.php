@@ -23,7 +23,7 @@ class Data
      *
      * @var bool
      */
-    public static $compareTxData = false;
+    public static $compareTxData = true;
 
 
     /**

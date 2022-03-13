@@ -114,7 +114,7 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
 
     /**
      * Move to {@param $offset}.
-     * 
+     *
      * @param int $offset
      * @return static
      */
@@ -182,7 +182,11 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
      */
     public function offsetSet(mixed $key, mixed $value): void
     {
-        $this->items[$key] = $value;
+        if (is_null($key)) {
+            $this->items[] = $value;
+        } else {
+            $this->items[$key] = $value;
+        }
     }
 
     /**

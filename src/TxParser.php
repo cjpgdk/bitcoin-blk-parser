@@ -68,44 +68,9 @@ class TxParser
     /**
      * The transaction inputs.
      *
-     * **Format**
-     *
-     * `script_sig` will change after publish, as i will make a small script
-     * parser standalone package.
-     *
-     *
-     *
-     * Note that witness is only present on transactions that are flagged as
-     * SegWit.
-     *
-     * The item `coinbase` is only present on the coinbase transaction,
-     * and item `script_sig` is present on the reset.
-     *
-     *
-     * ```json
-     * [
-     *  {
-     *    //* For coinbase transaction the txid is removed
-     *    "txid": "HEX",
-     *    //* For coinbase transaction the vout is removed
-     *    "vout": NUMBER,
-     *    //* Only for coinbase transaction (the first tx)
-     *    "coinbase": "HEX String",
-     *    //* Not present on coinbase but on the rest.
-     *    "script_sig": "HEX String",
-     *    "witness": [
-     *      "HEX String",  ...
-     *    ],
-     *    "sequence": NUMBER
-     *  },
-     *  ...
-     * ]
-     *
-     * ```
-     *
-     * @var array<mixed>
+     * @var Inputs
      */
-    public readonly array $inputs;
+    public readonly Inputs $inputs;
 
     /**
      * The number of outputs contained in this transaction.
@@ -196,7 +161,7 @@ class TxParser
         $this->locktime = new LockTime($locktime);
         $this->version = $version;
         $this->inputCount = $inputCount;
-        $this->inputs = $inputs;
+        $this->inputs = new Inputs($inputs);
         $this->outputCount = $outputCount;
         $this->outputs = $outputs;
         $this->hex = $hex;
@@ -204,6 +169,7 @@ class TxParser
 
         $this->weight = $this->vsize * 3 + $this->size;
     }
+
     /**
      * Reads the transaction data from the stream.
      *
@@ -358,7 +324,6 @@ class TxParser
         // for later to calculate the tx hash/txid
         $pe = $block->tell();
     }
-
 
     /**
      * Reads the outputs of the transaction from the stream.
