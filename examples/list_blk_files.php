@@ -37,6 +37,6 @@ foreach ($reader as $i => $file) {
     // echo $reader->fileName().PHP_EOL; //  blkXXXXX.dat
     
     // echo the full path and file name.
-    echo $reader[$i].PHP_EOL; // /your/full/path/blocks/ blkXXXXX.dat
+    echo $reader[$i].PHP_EOL; // /your/full/path/blocks/blkXXXXX.dat
 }
    

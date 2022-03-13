@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cjpg\Bitcoin\Blk;
 
 use Cjpg\Bitcoin\Blk\Readers\Stream;
+use RuntimeException;
 
 /**
  * TxParser reads the transaction from an input of bytes (binary string) or a
@@ -82,26 +83,9 @@ class TxParser
     /**
      * The transaction outputs.
      *
-     * **Format**
-     *
-     * *Note that the value is the number of Satoshis '1 btc = 10^8'*
-     *
-     * `script_pub_key` will change after publish, as i will make a small script
-     * parser standalone package
-     *
-     * ```json
-     * [
-     *   {
-     *     "value": NUMBER,
-     *     "n": NUMBER,
-     *     "script_pub_key": "HEX String"
-     *   }
-     *   ...
-     * ]
-     *
-     * @var array<mixed>
+     * @var Outputs
      */
-    public readonly array $outputs;
+    public readonly Outputs $outputs;
 
     /**
      * Flag indicating the presence of witness data
@@ -163,11 +147,29 @@ class TxParser
         $this->inputCount = $inputCount;
         $this->inputs = new Inputs($inputs);
         $this->outputCount = $outputCount;
-        $this->outputs = $outputs;
+        $this->outputs = new Outputs($outputs);
         $this->hex = $hex;
         $this->segwit = $segwit;
 
         $this->weight = $this->vsize * 3 + $this->size;
+    }
+
+    /**
+     * Reads the transaction data from a hexadecimal string
+     *
+     * @param string $hex
+     * @return \Cjpg\Bitcoin\Blk\TxParser
+     * @throws RuntimeException
+     */
+    public static function fromHex(string $hex): TxParser
+    {
+        if (($hex = hex2bin($hex)) && $resource = fopen('php://memory', 'rwb')) {
+            fwrite($resource, $hex);
+            rewind($resource);
+            return static::fromStream(new Stream($resource));
+        } else {
+            throw new RuntimeException('Unable to load transaction data into memory');
+        }
     }
 
     /**

@@ -155,9 +155,9 @@ final class TxParserTest extends TestCase
 
                 // outputs
                 foreach ($tx->outputs as $vo => $vout) {
-                    $this->assertSame($blockTx->vout[$vo]->value, ($vout['value'] / 100000000.0));
-                    $this->assertSame($blockTx->vout[$vo]->n, $vout['n']);
-                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout['script_pub_key']);
+                    $this->assertSame($blockTx->vout[$vo]->value, ($vout->value / 100000000.0));
+                    $this->assertSame($blockTx->vout[$vo]->n, $vout->n);
+                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout->scriptPubKey);
                 }
             }
         }

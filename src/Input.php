@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Cjpg\Bitcoin\Blk;
 
+use JsonSerializable;
+
 /**
- * An input in a transaction
+ * A input in a transaction
  */
-class Input
+class Input implements JsonSerializable
 {
     /**
      * The input type Coinbase or Script.
@@ -113,5 +115,32 @@ class Input
             $sequence,
             $witness
         );
+    }
+
+    /**
+     * JsonSerializable implementation.
+     *
+     * @return mixed
+     */
+    public function jsonSerialize(): mixed
+    {
+        if ($this->isCoinbase()) {
+            return [
+                'coinbase' => $this->scriptSig,
+                'sequence' => $this->sequence
+            ];
+        }
+
+        $out = [
+            'txid' => $this->txid,
+            'vout' => $this->vout,
+            'script_sig' => $this->scriptSig,
+            'sequence' => $this->sequence,
+        ];
+        if ($this->witness) {
+            $out['witness'] = $this->witness;
+        }
+
+        return $out;
     }
 }

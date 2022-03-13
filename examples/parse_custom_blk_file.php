@@ -87,10 +87,10 @@ foreach ($reader->blocks() as $block) {
         
         foreach ($tx->outputs as $vo => $vout) {
             
-            echo "     - Value (Satoshis) ..: ".$vout['value'].PHP_EOL;
-            echo "     - Value (BTC) .......: ".($vout['value'] / 100000000.0).PHP_EOL;
-            echo "     - N .................: ".$vout['n'].PHP_EOL;
-            echo "     - scriptPubKey (Hex) : ".$vout['script_pub_key'].PHP_EOL;
+            echo "     - Value (Satoshis) ..: ".$vout->value.PHP_EOL;
+            echo "     - Value (BTC) .......: ".($vout->value / 100000000.0).PHP_EOL;
+            echo "     - N .................: ".$vout->n.PHP_EOL;
+            echo "     - scriptPubKey (Hex) : ".$vout->scriptPubKey.PHP_EOL;
             
             echo PHP_EOL;
         }
