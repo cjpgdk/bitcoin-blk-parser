@@ -18,10 +18,6 @@ final class BlkReaderTest extends TestCase
         $this->assertEquals('blkmain0.dat', $reader->fileName());
         // $reader[0]: with path
         $this->assertEquals($dataDir . 'blkmain0.dat', $reader[0]);
-        // $reader->current() == BlkReader::class
-        $this->assertInstanceOf(BlkReader::class, $current = $reader->current());
-        // $reader->current() === $reader
-        $this->assertSame($current, $reader);
 
         return $reader;
     }
@@ -57,13 +53,13 @@ final class BlkReaderTest extends TestCase
         // make sure we are at the begining.
         $reader->rewind();
 
-        foreach ($reader as $blkReader) {
-            $this->assertInstanceOf(BlkReader::class, $blkReader);
-            $this->assertSame($reader, $blkReader);
+        foreach ($reader as $i => $blkFile) {
+            $this->assertTrue(file_exists($blkFile));
+            $this->assertSame($reader[$i], $blkFile);
 
-            // loop blocks
+            // loop blocks in $blkFile
             $blockCount = 0;
-            foreach ($blkReader->blocks() as $block) {
+            foreach ($reader->blocks() as $block) {
                 ++$blockCount;
                 $this->assertInstanceOf(BlockParser::class, $block);
             }
