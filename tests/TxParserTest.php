@@ -138,7 +138,7 @@ final class TxParserTest extends TestCase
 
                 // inputs
                 foreach ($tx->inputs as $vi => $vin) {
-                    if ($vin->isCoinbase()) {
+                    if ($vin->type == InputType::COINBASE) {
                         $this->assertSame($blockTx->vin[$vi]->coinbase, $vin->scriptSig);
                     } else {
                         $this->assertSame($blockTx->vin[$vi]->txid, $vin->txid);

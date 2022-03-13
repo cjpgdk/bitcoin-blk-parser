@@ -1,7 +1,6 @@
 <?php
 
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
-use Cjpg\Bitcoin\Blk\InputType;
 
 require '../vendor/autoload.php';
 
@@ -15,8 +14,7 @@ $reader = new BlkReader($dataFolder, false);
 // $reader->setMagicBytes("\xf9\xbe\xb4\xd9");
 
 // now we add our custom file, we know the filename.
-$reader->add('updloaded.dat', 0);
-// $reader->offsetSet(0, 'updloaded.dat');
+$reader->offsetSet(0, 'updloaded.dat');
 
 // the new file is added at the index we sat to 0
 echo $reader[0].PHP_EOL; // /var/www/data/updloaded.dat;
@@ -56,25 +54,25 @@ foreach ($reader->blocks() as $block) {
         
         foreach ($tx->inputs as $vi => $vin) {
             
-            if ($vin->isCoinbase()) {
+            if (isset($vin['coinbase'])) {
                 
-                echo "     - Coinbase (Hex) ....: ".$vin->scriptSig.PHP_EOL;
+                echo "     - Coinbase (Hex) ....: ".$vin['coinbase'].PHP_EOL;
                 
             } else {
                 
-                echo "     - Spending tx .......: ".$vin->txid.PHP_EOL;
-                echo "     - Spending tx output : ".$vin->vout.PHP_EOL;
-                echo "     - ScriptSig (Hex) ...: ".$vin->scriptSig.PHP_EOL;
-                echo "     - Sequence ..........: ".$vin->sequence.PHP_EOL;
+                echo "     - Spending tx .......: ".$vin['txid'].PHP_EOL;
+                echo "     - Spending tx output : ".$vin['vout'].PHP_EOL;
+                echo "     - ScriptSig (Hex) ...: ".$vin['script_sig'].PHP_EOL;
+                echo "     - Sequence ..........: ".$vin['sequence'].PHP_EOL;
                 
             }
 
             // if $block->segwit then witness flag is set in the tranaction,
             // but if the witness data for the tx is empty the 'witness' is
             // removed.
-            if ($vin->witness) {
-                for ($i = 0; $i < count($vin->witness); $i++) {
-                    echo "     - witness[$i] (Hex) .: ".$vin->witness[$i].PHP_EOL;
+            if (isset($vin['witness'])) {
+                for ($i = 0; $i < count($vin['witness']); $i++) {
+                    echo "     - witness[$i] (Hex) .: ".$vin['witness'][$i].PHP_EOL;
                 }
             }
             echo PHP_EOL;
