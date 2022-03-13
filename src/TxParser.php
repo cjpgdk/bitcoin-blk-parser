@@ -12,7 +12,6 @@ use Cjpg\Bitcoin\Blk\Readers\Stream;
  *
  * **fee can't be calculated without having access to the spending output.**
  *
- * @todo make locktime an object that calculates time or block height.
  * @todo make output value into a Money object for simple calculations.
  */
 class TxParser
@@ -48,9 +47,9 @@ class TxParser
     /**
      * The block height or timestamp of when  the transaction can be spend.
      *
-     * @var int Will change to a lock time object at some point.
+     * @var LockTime
      */
-    public readonly int $locktime;
+    public readonly LockTime $locktime;
 
     /**
      * The version of this transaction.
@@ -194,7 +193,7 @@ class TxParser
         $this->hash = $hash;
         $this->size = $size;
         $this->vsize = $vsize;
-        $this->locktime = $locktime;
+        $this->locktime = new LockTime($locktime);
         $this->version = $version;
         $this->inputCount = $inputCount;
         $this->inputs = $inputs;

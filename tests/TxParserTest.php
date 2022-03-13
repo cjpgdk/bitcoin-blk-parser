@@ -87,7 +87,7 @@ final class TxParserTest extends TestCase
                 // locktime
                 $this->assertSame(
                     $blockTx->locktime,
-                    $tx->locktime,
+                    $tx->locktime->value,
                     "locktime failed: {$block->blockHash()}:{$tx->txid}"
                 );
 

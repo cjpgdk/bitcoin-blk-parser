@@ -37,12 +37,13 @@ BLOCKS="000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f \
        00000000000000000004e6c1eec8281d333da8f893400125132dd60c5ff49fa7"
 
 for block in ${BLOCKS}; do
-    wget https://cjpgdk.github.io/bitcoin-blk-parser/data/${block} -o tests/data/${block}.block
+    wget https://cjpgdk.github.io/bitcoin-blk-parser/data/${block}.block -o tests/data/${block}.block
 done
 
 ```
 
-** Get the blocks bitcoin-cli **
+** Get the blocks from bitcoin-cli **
+
 ```sh
 #!/bin/bash
 
