@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
 use Cjpg\Bitcoin\Blk\InputType;
 use Cjpg\Bitcoin\Blk\MoneyUnit;
+use Cjpg\Bitcoin\Blk\TxParser;
 use Test\Data;
 
 final class TxParserTest extends TestCase
@@ -17,6 +18,54 @@ final class TxParserTest extends TestCase
         // needed to make phpunit happy! :(.... :)
         $this->assertInstanceOf(BlkReader::class, $reader);
         return $reader;
+    }
+
+    public function testTxParserFromHex(): void
+    {
+        $tx = TxParser::fromHex(Data::$txHex[0]['hex']);
+        
+        $this->assertSame(Data::$txHex[0]['hex'], $tx->hex);
+        $this->assertSame(Data::$txHex[0]['txid'], $tx->txid);
+        $this->assertSame(Data::$txHex[0]['hash'], $tx->hash);
+        $this->assertSame(Data::$txHex[0]['version'], $tx->version);
+        $this->assertSame(Data::$txHex[0]['size'], $tx->size);
+        $this->assertSame(Data::$txHex[0]['vsize'], $tx->vsize);
+        $this->assertSame(Data::$txHex[0]['weight'], $tx->weight);
+        $this->assertSame(Data::$txHex[0]['locktime'], $tx->locktime->value);
+
+        // inputCount
+        $this->assertCount($tx->inputCount, Data::$txHex[0]['vin']);
+
+        foreach (Data::$txHex[0]['vin'] as $i => $vin) {
+            $in = $tx->inputs->get($i);
+
+            if (isset($vin['coinbase'])) {
+
+                $this->assertTrue($in->isCoinbase());
+                $this->assertSame($vin['coinbase'], $in->scriptSig);
+                $this->assertSame($vin['sequence'], $in->sequence);
+
+            } else {
+
+                $this->assertFalse($in->isCoinbase());
+                $this->assertSame($vin['txid'], $in->txid);
+                $this->assertSame($vin['vout'], $in->vout);
+                $this->assertSame($vin['scriptSig']['hex'], $in->scriptSig);
+                $this->assertSame($vin['sequence'], $in->sequence);
+
+            }
+        }
+
+        // outputCount
+        $this->assertCount($tx->outputCount, Data::$txHex[0]['vout']);
+        
+        foreach (Data::$txHex[0]['vout'] as $i => $vout) {
+            $out = $tx->outputs->get($i);
+            
+            $this->assertSame($vout['value'], (float)$out->value->format(MoneyUnit::BTC));
+            $this->assertSame($vout['n'], $out->n);
+            $this->assertSame($vout['scriptPubKey']['hex'], $out->scriptPubKey);
+        }
     }
 
     /**
