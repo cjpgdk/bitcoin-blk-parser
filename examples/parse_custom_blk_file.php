@@ -2,6 +2,7 @@
 
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
 use Cjpg\Bitcoin\Blk\InputType;
+use Cjpg\Bitcoin\Blk\MoneyUnit;
 
 require '../vendor/autoload.php';
 
@@ -88,7 +89,7 @@ foreach ($reader->blocks() as $block) {
         foreach ($tx->outputs as $vo => $vout) {
             
             echo "     - Value (Satoshis) ..: ".$vout->value.PHP_EOL;
-            echo "     - Value (BTC) .......: ".($vout->value / 100000000.0).PHP_EOL;
+            echo "     - Value (BTC) .......: ".$vout->value->format(MoneyUnit::BTC).PHP_EOL;
             echo "     - N .................: ".$vout->n.PHP_EOL;
             echo "     - scriptPubKey (Hex) : ".$vout->scriptPubKey.PHP_EOL;
             

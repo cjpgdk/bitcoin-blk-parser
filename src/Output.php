@@ -14,9 +14,9 @@ class Output implements JsonSerializable
     /**
      * The monetary value of this output.
      *
-     * @var int
+     * @var Money
      */
-    public readonly int $value;
+    public readonly Money $value;
     /**
      * The output index.
      *
@@ -39,7 +39,7 @@ class Output implements JsonSerializable
      */
     public function __construct(int $value, int $n, string $scriptPubKey)
     {
-        $this->value = $value;
+        $this->value = new Money($value, MoneyUnit::Sat);
         $this->n = $n;
         $this->scriptPubKey = $scriptPubKey;
     }

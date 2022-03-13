@@ -5,6 +5,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
 use Cjpg\Bitcoin\Blk\InputType;
+use Cjpg\Bitcoin\Blk\MoneyUnit;
 use Test\Data;
 
 final class TxParserTest extends TestCase
@@ -155,7 +156,8 @@ final class TxParserTest extends TestCase
 
                 // outputs
                 foreach ($tx->outputs as $vo => $vout) {
-                    $this->assertSame($blockTx->vout[$vo]->value, ($vout->value / 100000000.0));
+                    //                                          // cast to float as json output is always float. :(
+                    $this->assertSame($blockTx->vout[$vo]->value, (float)$vout->value->format(MoneyUnit::BTC));
                     $this->assertSame($blockTx->vout[$vo]->n, $vout->n);
                     $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout->scriptPubKey);
                 }
