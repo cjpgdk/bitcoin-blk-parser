@@ -4,37 +4,16 @@ declare(strict_types=1);
 
 namespace Cjpg\Bitcoin\Blk\Readers;
 
-use ArrayAccess;
-use Countable;
-use Iterator;
+use Exception;
+use Cjpg\Bitcoin\Blk\BaseCollection;
 
 /**
  * Base of the reader classes.
- * @implements \ArrayAccess<int, mixed>
- * @implements \Iterator<static>
+ *
+ * @extends \Cjpg\Bitcoin\Blk\BaseCollection<int, string>
  */
-abstract class Reader implements Countable, ArrayAccess, Iterator
+abstract class Reader extends BaseCollection
 {
-    /**
-     * The current item in use by the iterator.
-     * @var mixed
-     */
-    protected mixed $currentItem;
-
-    /**
-     * The current position of the iterator.
-     *
-     * @var int
-     */
-    protected int $currentPosition;
-
-    /**
-     * The items from which the reader can read.
-     *
-     * @var array<mixed>
-     */
-    protected array $items;
-
     /**
      * A custom function to format the items in the list.
      *
@@ -82,105 +61,35 @@ abstract class Reader implements Countable, ArrayAccess, Iterator
     }
 
     /**
-     * Get the number of items in this reader.
-     *
-     * @return int
-     */
-    public function count(): int
-    {
-        return count($this->items);
-    }
-
-    /**
-     * Get the current element.
-     *
-     * @return static
-     */
-    public function current(): self
-    {
-        $this->currentItem = $this->offsetGet($this->currentPosition);
-        return $this;
-    }
-
-    /**
-     * Get the key of the current element.
-     *
-     * @return int
-     */
-    public function key(): int
-    {
-        return $this->currentPosition;
-    }
-
-    /**
-     * Move forward to next element.
-     */
-    public function next(): void
-    {
-        ++$this->currentPosition;
-    }
-
-    /**
-     * Rewind the iterator to the first element.
-     */
-    public function rewind(): void
-    {
-        $this->currentPosition = 0;
-    }
-
-    /**
-     * Checks if current iterator position is valid.
-     */
-    public function valid(): bool
-    {
-        return $this->offsetExists($this->currentPosition);
-    }
-
-    /**
-     * Check if an offset($key) exists.
-     *
-     * @param mixed $key
-     * @return bool
-     */
-    public function offsetExists($key): bool
-    {
-        return isset($this->items[$key]);
-    }
-
-    /**
      * Get the item at offset($key).
      *
-     * @param mixed $key
-     * @return mixed
+     * @param int $key
+     * @return string|null
      */
     public function offsetGet($key): mixed
     {
+        $value = parent::offsetGet($key);
+
         if ($formatter = $this->offsetGetFormatter) {
-            return $formatter($this->items[$key]);
+            return $formatter($value);
         }
-        return $this->items[$key];
+        return $value;
     }
 
     /**
-     * Set/Add an item.
+     * Move to {@param $offset}.
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @return void
+     * @param int $offset
+     * @return static
      */
-    public function offsetSet(mixed $key, mixed $value): void
+    public function moveTo(int $offset): self
     {
-        $this->items[$key] = $value;
+        $this->position = $offset;
+        return $this;
     }
 
-    /**
-     * Unset an item from the list.
-     *
-     * @param mixed $key
-     * @return void
-     */
-    public function offsetUnset(mixed $key): void
+    public function jsonSerialize(): mixed
     {
-        unset($this->items[$key]);
+        throw new Exception("The reader do not support jsonSerialize");
     }
 }

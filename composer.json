@@ -16,7 +16,8 @@
         "php": "^8.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "code-lts/doctum": "^5.5"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +33,8 @@
         "test": "phpunit",
         "analyse": "phpstan analyse",
         "check-style": "phpcs -p --standard=PSR12 src tests",
-        "fix-style": "phpcbf -p --standard=PSR12 src tests"
+        "fix-style": "phpcbf -p --standard=PSR12 src tests",
+        "doctum": "vendor/bin/doctum.php update doctum.php -v"
     },
     "extra": {
         "branch-alias": {

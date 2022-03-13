@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cjpg\Bitcoin\Blk;
 
 use Cjpg\Bitcoin\Blk\Readers\Stream;
+use RuntimeException;
 
 /**
  * TxParser reads the transaction from an input of bytes (binary string) or a
@@ -10,7 +13,6 @@ use Cjpg\Bitcoin\Blk\Readers\Stream;
  *
  * **fee can't be calculated without having access to the spending output.**
  *
- * @todo make locktime an object that calculates time or block height.
  * @todo make output value into a Money object for simple calculations.
  */
 class TxParser
@@ -46,9 +48,9 @@ class TxParser
     /**
      * The block height or timestamp of when  the transaction can be spend.
      *
-     * @var int Will change to a lock time object at some point.
+     * @var LockTime
      */
-    public readonly int $locktime;
+    public readonly LockTime $locktime;
 
     /**
      * The version of this transaction.
@@ -67,44 +69,9 @@ class TxParser
     /**
      * The transaction inputs.
      *
-     * **Format**
-     *
-     * `script_sig` will change after publish, as i will make a small script
-     * parser standalone package.
-     *
-     *
-     *
-     * Note that witness is only present on transactions that are flagged as
-     * SegWit.
-     *
-     * The item `coinbase` is only present on the coinbase transaction,
-     * and item `script_sig` is present on the reset.
-     *
-     *
-     * ```json
-     * [
-     *  {
-     *    //* For coinbase transaction the txid is removed
-     *    "txid": "HEX",
-     *    //* For coinbase transaction the vout is removed
-     *    "vout": NUMBER,
-     *    //* Only for coinbase transaction (the first tx)
-     *    "coinbase": "HEX String",
-     *    //* Not present on coinbase but on the rest.
-     *    "script_sig": "HEX String",
-     *    "witness": [
-     *      "HEX String",  ...
-     *    ],
-     *    "sequence": NUMBER
-     *  },
-     *  ...
-     * ]
-     *
-     * ```
-     *
-     * @var array<mixed>
+     * @var Inputs
      */
-    public readonly array $inputs;
+    public readonly Inputs $inputs;
 
     /**
      * The number of outputs contained in this transaction.
@@ -116,26 +83,9 @@ class TxParser
     /**
      * The transaction outputs.
      *
-     * **Format**
-     *
-     * *Note that the value is the number of Satoshis '1 btc = 10^8'*
-     *
-     * `script_pub_key` will change after publish, as i will make a small script
-     * parser standalone package
-     *
-     * ```json
-     * [
-     *   {
-     *     "value": NUMBER,
-     *     "n": NUMBER,
-     *     "script_pub_key": "HEX String"
-     *   }
-     *   ...
-     * ]
-     *
-     * @var array<mixed>
+     * @var Outputs
      */
-    public readonly array $outputs;
+    public readonly Outputs $outputs;
 
     /**
      * Flag indicating the presence of witness data
@@ -192,17 +142,36 @@ class TxParser
         $this->hash = $hash;
         $this->size = $size;
         $this->vsize = $vsize;
-        $this->locktime = $locktime;
+        $this->locktime = new LockTime($locktime);
         $this->version = $version;
         $this->inputCount = $inputCount;
-        $this->inputs = $inputs;
+        $this->inputs = new Inputs($inputs);
         $this->outputCount = $outputCount;
-        $this->outputs = $outputs;
+        $this->outputs = new Outputs($outputs);
         $this->hex = $hex;
         $this->segwit = $segwit;
 
         $this->weight = $this->vsize * 3 + $this->size;
     }
+
+    /**
+     * Reads the transaction data from a hexadecimal string
+     *
+     * @param string $hex
+     * @return \Cjpg\Bitcoin\Blk\TxParser
+     * @throws RuntimeException
+     */
+    public static function fromHex(string $hex): TxParser
+    {
+        if (($hex = hex2bin($hex)) && $resource = fopen('php://memory', 'rwb')) {
+            fwrite($resource, $hex);
+            rewind($resource);
+            return static::fromStream(new Stream($resource));
+        } else {
+            throw new RuntimeException('Unable to load transaction data into memory');
+        }
+    }
+
     /**
      * Reads the transaction data from the stream.
      *
@@ -357,7 +326,6 @@ class TxParser
         // for later to calculate the tx hash/txid
         $pe = $block->tell();
     }
-
 
     /**
      * Reads the outputs of the transaction from the stream.

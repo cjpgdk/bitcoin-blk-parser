@@ -88,13 +88,9 @@ class BlkReader extends Reader
      */
     public function blocks(): Generator
     {
-        // make sure the current file is set!
-        // this is a hack for users not using the reader as an array.
-        $this->current();
-
-        $fStream = Stream::fromFile($this->currentItem);
+        $fStream = Stream::fromFile($this->current());
         if (!$fStream) {
-            throw new RuntimeException("Unable read from file [{$this->currentItem}]");
+            throw new RuntimeException("Unable read from file [{$this->current()}]");
         }
         $idx = 0;
         while ($fStream->read(4) == $this->magicBytes) {
@@ -147,24 +143,25 @@ class BlkReader extends Reader
         if (!$files) {
             return $this;
         }
-        $this->items = array_map(function ($item) {
+        $items = array_map(function ($item) {
                 // This allows input folder to be '/path../' and '/path..'
                 return ltrim(
                     str_replace($this->blkFolder, '', $item),
                     DIRECTORY_SEPARATOR
                 );
-        },
-            $files);
+        }, $files);
+        parent::__construct($items);
+
         return $this;
     }
 
     /**
      * Gets the file name of the file that we are currently reading from.
      *
-     * @return string Filename without path
+     * @return string|null Filename without path
      */
-    public function fileName(): string
+    public function fileName(): ?string
     {
-        return $this->items[$this->currentPosition];
+        return $this->get($this->key());
     }
 }

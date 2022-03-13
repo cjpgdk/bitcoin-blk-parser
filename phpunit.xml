@@ -9,6 +9,7 @@
             <file>./tests/BlkReaderTest.php</file>
             <file>./tests/BlockParserTest.php</file>
             <file>./tests/TxParserTest.php</file>
+            <file>./tests/MoneyTest.php</file>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">

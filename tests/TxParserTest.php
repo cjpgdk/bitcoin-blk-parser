@@ -4,6 +4,8 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use Cjpg\Bitcoin\Blk\Readers\BlkReader;
+use Cjpg\Bitcoin\Blk\InputType;
+use Cjpg\Bitcoin\Blk\MoneyUnit;
 use Test\Data;
 
 final class TxParserTest extends TestCase
@@ -87,7 +89,7 @@ final class TxParserTest extends TestCase
                 // locktime
                 $this->assertSame(
                     $blockTx->locktime,
-                    $tx->locktime,
+                    $tx->locktime->value,
                     "locktime failed: {$block->blockHash()}:{$tx->txid}"
                 );
 
@@ -137,26 +139,27 @@ final class TxParserTest extends TestCase
 
                 // inputs
                 foreach ($tx->inputs as $vi => $vin) {
-                    if (isset($vin['coinbase'])) {
-                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin['coinbase']);
+                    if ($vin->isCoinbase()) {
+                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin->scriptSig);
                     } else {
-                        $this->assertSame($blockTx->vin[$vi]->txid, $vin['txid']);
-                        $this->assertSame($blockTx->vin[$vi]->vout, $vin['vout']);
-                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin['script_sig']);
+                        $this->assertSame($blockTx->vin[$vi]->txid, $vin->txid);
+                        $this->assertSame($blockTx->vin[$vi]->vout, $vin->vout);
+                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin->scriptSig);
                     }
 
-                    $this->assertSame($blockTx->vin[$vi]->sequence, $vin['sequence']);
+                    $this->assertSame($blockTx->vin[$vi]->sequence, $vin->sequence);
 
-                    if (isset($vin['witness'])) {
-                        $this->assertSame($blockTx->vin[$vi]->txinwitness, $vin['witness']);
+                    if ($vin->witness) {
+                        $this->assertSame($blockTx->vin[$vi]->txinwitness, $vin->witness);
                     }
                 }
 
                 // outputs
                 foreach ($tx->outputs as $vo => $vout) {
-                    $this->assertSame($blockTx->vout[$vo]->value, ($vout['value'] / 100000000.0));
-                    $this->assertSame($blockTx->vout[$vo]->n, $vout['n']);
-                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout['script_pub_key']);
+                    //                                          // cast to float as json output is always float. :(
+                    $this->assertSame($blockTx->vout[$vo]->value, (float)$vout->value->format(MoneyUnit::BTC));
+                    $this->assertSame($blockTx->vout[$vo]->n, $vout->n);
+                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout->scriptPubKey);
                 }
             }
         }
