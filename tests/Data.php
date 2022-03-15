@@ -170,4 +170,43 @@ class Data
             'difficulty'   => 27550332084343
         ]
     ];
+
+
+    /**
+     * Parse transaction hexadecimals.
+     *
+     * @var array<array<mixed>>
+     */
+    public static array $txHex = [
+        [
+            "txid" => "0b3f272c7529d729ee41b0b10dff5609986912d66a9e2d945f30413278498731",
+            "hash" => "0b3f272c7529d729ee41b0b10dff5609986912d66a9e2d945f30413278498731",
+            "version" => 1,
+            "size" => 127,
+            "vsize" => 127,
+            "weight" => 508,
+            "locktime" => 0,
+            "vin" => [
+                [
+                "coinbase" => "03634b051d4d696e656420627920416e74506f6f6c206e6d67302b76251454fec5817822000022970000",
+                "sequence" => 4294967295
+                ]
+            ],
+            "vout" => [
+                [
+                    "value" => 25.13754584,
+                    "n" => 0,
+                    "scriptPubKey" => [
+                      "asm" => "OP_DUP OP_HASH160 ba38df6693b3a35ea1336a65aaa8bbe483ce9184 OP_EQUALVERIFY OP_CHECKSIG",
+                      "hex" => "76a914ba38df6693b3a35ea1336a65aaa8bbe483ce918488ac",
+                      "address" => "1HyepGCdXGpiR7b9RRuaVPAdmL7x6znqQr",
+                      "type" => "pubkeyhash"
+                    ]
+                ]
+            ],
+            'hex' => '01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff2a03634b051d4d696e656420627920416e74506f6f6c206e6d67302b76251454fec5817822000022970000ffffffff01d8d9d495000000001976a914ba38df6693b3a35ea1336a65aaa8bbe483ce918488ac00000000',
+
+        ]
+
+    ];
 }

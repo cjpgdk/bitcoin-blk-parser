@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cjpg\Bitcoin\Blk;
 
+use Cjpg\Bitcoin\Script\ScriptPubKey;
 use JsonSerializable;
 
 /**
@@ -26,9 +27,9 @@ class Output implements JsonSerializable
     /**
      * The script pub key.
      *
-     * @var string
+     * @var \Cjpg\Bitcoin\Script\ScriptPubKey
      */
-    public readonly string $scriptPubKey;
+    public readonly ScriptPubKey $scriptPubKey;
 
     /**
      * Creates the new output class object.
@@ -41,7 +42,7 @@ class Output implements JsonSerializable
     {
         $this->value = new Money($value, MoneyUnit::Sat);
         $this->n = $n;
-        $this->scriptPubKey = $scriptPubKey;
+        $this->scriptPubKey = new ScriptPubKey($scriptPubKey, true);
     }
 
     /**
@@ -66,7 +67,11 @@ class Output implements JsonSerializable
         return [
             'value'          => $this->value,
             'n'              => $this->n,
-            'script_pub_key' => $this->scriptPubKey,
+            'script_pub_key' => [
+                'asm' => (string)$this->scriptPubKey,
+                'hex' => $this->scriptPubKey->toHex(),
+                'type' => $this->scriptPubKey->getType(),
+            ],
         ];
     }
 }

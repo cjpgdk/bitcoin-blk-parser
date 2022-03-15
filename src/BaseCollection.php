@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Cjpg\Bitcoin\Blk;
 
 use ArrayAccess;
-use ArrayIterator;
 use Countable;
 use Iterator;
 use JsonSerializable;
-use Traversable;
 
 /**
  * @template TKey of array-key
@@ -175,6 +173,7 @@ abstract class BaseCollection implements ArrayAccess, Countable, JsonSerializabl
      *
      * @return TValue
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->offsetGet(
@@ -187,6 +186,7 @@ abstract class BaseCollection implements ArrayAccess, Countable, JsonSerializabl
      *
      * @return TKey
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->keys[$this->position];

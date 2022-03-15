@@ -60,13 +60,13 @@ foreach ($reader->blocks() as $block) {
             // $vin->isCoinbase() == ($vin->type == InputType::COINBASE)
             if ($vin->type == InputType::COINBASE) {
                 
-                echo "     - Coinbase (Hex) ....: ".$vin->scriptSig.PHP_EOL;
+                echo "     - Coinbase (Hex) ....: ".$vin->scriptSig->toHex().PHP_EOL;
                 
             } else {
                 
                 echo "     - Spending tx .......: ".$vin->txid.PHP_EOL;
                 echo "     - Spending tx output : ".$vin->vout.PHP_EOL;
-                echo "     - ScriptSig (Hex) ...: ".$vin->scriptSig.PHP_EOL;
+                echo "     - ScriptSig (Hex) ...: ".$vin->scriptSig->toHex().PHP_EOL;
                 echo "     - Sequence ..........: ".$vin->sequence.PHP_EOL;
                 
             }
@@ -91,7 +91,7 @@ foreach ($reader->blocks() as $block) {
             echo "     - Value (Satoshis) ..: ".$vout->value.PHP_EOL;
             echo "     - Value (BTC) .......: ".$vout->value->format(MoneyUnit::BTC).PHP_EOL;
             echo "     - N .................: ".$vout->n.PHP_EOL;
-            echo "     - scriptPubKey (Hex) : ".$vout->scriptPubKey.PHP_EOL;
+            echo "     - scriptPubKey (Hex) : ".$vout->scriptPubKey->toHex().PHP_EOL;
             
             echo PHP_EOL;
         }
