@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cjpg\Bitcoin\Blk;
 
+use Cjpg\Bitcoin\Script\ScriptSig;
 use JsonSerializable;
 
 /**
@@ -35,9 +36,9 @@ class Input implements JsonSerializable
     /**
      * The input script signature.
      *
-     * @var string
+     * @var \Cjpg\Bitcoin\Script\ScriptSig
      */
-    public readonly string $scriptSig;
+    public readonly ScriptSig $scriptSig;
 
     /**
      * The input sequence.
@@ -73,7 +74,7 @@ class Input implements JsonSerializable
         $this->type = $type;
         $this->txid = $txid;
         $this->vout = $vout;
-        $this->scriptSig = $scriptSig;
+        $this->scriptSig = new ScriptSig($scriptSig, true);
         $this->sequence = $sequence;
         $this->witness = $witness;
     }
@@ -126,7 +127,7 @@ class Input implements JsonSerializable
     {
         if ($this->isCoinbase()) {
             return [
-                'coinbase' => $this->scriptSig,
+                'coinbase' => $this->scriptSig->toHex(),
                 'sequence' => $this->sequence
             ];
         }
@@ -134,7 +135,10 @@ class Input implements JsonSerializable
         $out = [
             'txid' => $this->txid,
             'vout' => $this->vout,
-            'script_sig' => $this->scriptSig,
+            'script_sig' => [
+                'asm' => (string)$this->scriptSig,
+                'hex' => $this->scriptSig->toHex()
+            ],
             'sequence' => $this->sequence,
         ];
         if ($this->witness) {

@@ -23,7 +23,7 @@ final class TxParserTest extends TestCase
     public function testTxParserFromHex(): void
     {
         $tx = TxParser::fromHex(Data::$txHex[0]['hex']);
-        
+
         $this->assertSame(Data::$txHex[0]['hex'], $tx->hex);
         $this->assertSame(Data::$txHex[0]['txid'], $tx->txid);
         $this->assertSame(Data::$txHex[0]['hash'], $tx->hash);
@@ -38,33 +38,37 @@ final class TxParserTest extends TestCase
 
         foreach (Data::$txHex[0]['vin'] as $i => $vin) {
             $in = $tx->inputs->get($i);
+            $this->assertNotNull($in);
+            if (!$in) {
+                continue;
+            }
 
             if (isset($vin['coinbase'])) {
-
                 $this->assertTrue($in->isCoinbase());
-                $this->assertSame($vin['coinbase'], $in->scriptSig);
+                $this->assertSame($vin['coinbase'], $in->scriptSig->toHex());
                 $this->assertSame($vin['sequence'], $in->sequence);
-
             } else {
-
                 $this->assertFalse($in->isCoinbase());
                 $this->assertSame($vin['txid'], $in->txid);
                 $this->assertSame($vin['vout'], $in->vout);
-                $this->assertSame($vin['scriptSig']['hex'], $in->scriptSig);
+                $this->assertSame($vin['scriptSig']['hex'], $in->scriptSig->toHex());
                 $this->assertSame($vin['sequence'], $in->sequence);
-
             }
         }
 
         // outputCount
         $this->assertCount($tx->outputCount, Data::$txHex[0]['vout']);
-        
+
         foreach (Data::$txHex[0]['vout'] as $i => $vout) {
             $out = $tx->outputs->get($i);
-            
+            $this->assertNotNull($out);
+            if (!$out) {
+                continue;
+            }
+
             $this->assertSame($vout['value'], (float)$out->value->format(MoneyUnit::BTC));
             $this->assertSame($vout['n'], $out->n);
-            $this->assertSame($vout['scriptPubKey']['hex'], $out->scriptPubKey);
+            $this->assertSame($vout['scriptPubKey']['hex'], $out->scriptPubKey->toHex());
         }
     }
 
@@ -189,11 +193,11 @@ final class TxParserTest extends TestCase
                 // inputs
                 foreach ($tx->inputs as $vi => $vin) {
                     if ($vin->isCoinbase()) {
-                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin->scriptSig);
+                        $this->assertSame($blockTx->vin[$vi]->coinbase, $vin->scriptSig->toHex());
                     } else {
                         $this->assertSame($blockTx->vin[$vi]->txid, $vin->txid);
                         $this->assertSame($blockTx->vin[$vi]->vout, $vin->vout);
-                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin->scriptSig);
+                        $this->assertSame($blockTx->vin[$vi]->scriptSig->hex, $vin->scriptSig->toHex());
                     }
 
                     $this->assertSame($blockTx->vin[$vi]->sequence, $vin->sequence);
@@ -208,7 +212,7 @@ final class TxParserTest extends TestCase
                     //                                          // cast to float as json output is always float. :(
                     $this->assertSame($blockTx->vout[$vo]->value, (float)$vout->value->format(MoneyUnit::BTC));
                     $this->assertSame($blockTx->vout[$vo]->n, $vout->n);
-                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout->scriptPubKey);
+                    $this->assertSame($blockTx->vout[$vo]->scriptPubKey->hex, $vout->scriptPubKey->toHex());
                 }
             }
         }
