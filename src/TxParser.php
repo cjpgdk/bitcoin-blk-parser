@@ -114,6 +114,7 @@ class TxParser
      * @param string $hash
      * @param int $size
      * @param int $vsize
+     * @param int $weight
      * @param int $locktime
      * @param int $version
      * @param int $inputCount
@@ -128,6 +129,7 @@ class TxParser
         string $hash,
         int $size,
         int $vsize,
+        int $weight,
         int $locktime,
         int $version,
         int $inputCount,
@@ -142,6 +144,7 @@ class TxParser
         $this->hash = $hash;
         $this->size = $size;
         $this->vsize = $vsize;
+        $this->weight = $weight;
         $this->locktime = new LockTime($locktime);
         $this->version = $version;
         $this->inputCount = $inputCount;
@@ -150,8 +153,6 @@ class TxParser
         $this->outputs = new Outputs($outputs);
         $this->hex = $hex;
         $this->segwit = $segwit;
-
-        $this->weight = $this->vsize * 3 + $this->size;
     }
 
     /**
@@ -262,8 +263,11 @@ class TxParser
             $hex   = bin2hex($txData);
             $size  = strlen($txData);
             // WITNESS_SCALE_FACTOR = 4
-            // ((strlen($buf) * 3 + $size) + 3) / 4;
-            $vsize = strlen($buf);
+            // src/consensus/consensus.h:21
+            // src/consensus/validation.h:149
+            // src/policy/policy.cpp:284
+            $weight = strlen($buf) * 3 + $size;
+            $vsize = (int)(($weight + 3) / 4);
         } else {
             $txData = $block->read($currentP - $pos);
             $txid   = Utilities::swapEndian(Utilities::hash256($txData), false);
@@ -271,6 +275,7 @@ class TxParser
             $hex    = bin2hex($txData);
             $size   = strlen($txData);
             $vsize  = $size;
+            $weight = $vsize * 3 + $size;
         }
 
         return new TxParser(
@@ -278,6 +283,7 @@ class TxParser
             $hash,
             $size,
             $vsize,
+            $weight,
             $locktime,
             $version,
             $inputCount,
