@@ -6,6 +6,7 @@ namespace Cjpg\Bitcoin\Blk;
 
 use DateTime;
 use RuntimeException;
+use JsonSerializable;
 
 /**
  * Transaction LockTime.
@@ -20,7 +21,7 @@ use RuntimeException;
  * @link https://en.bitcoin.it/wiki/Timelock
  * @link https://en.bitcoin.it/wiki/NLockTime
  */
-class LockTime
+class LockTime implements JsonSerializable
 {
     /**
      * The lock time value
@@ -85,6 +86,16 @@ class LockTime
     public function isTimeLock(): bool
     {
         return $this->value >= 500000000;
+    }
+    
+    /**
+     * JsonSerializable implementation.
+     *
+     * @return int
+     */
+    public function jsonSerialize(): int
+    {
+        return $this->value;
     }
 
     /**
