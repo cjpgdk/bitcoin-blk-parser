@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Cjpg\Bitcoin\Blk;
 
+use JsonSerializable;
+
 /**
  * class Money
  */
-class Money
+class Money implements JsonSerializable
 {
     private int $value;
 
@@ -33,6 +35,16 @@ class Money
     public function format(MoneyUnit $unit = MoneyUnit::Sat): int|float
     {
         return $this->value / $unit->value;
+    }
+    
+    /**
+     * JsonSerializable implementation.
+     *
+     * @return int
+     */
+    public function jsonSerialize(): int
+    {
+        return $this->value;
     }
 
     /**
