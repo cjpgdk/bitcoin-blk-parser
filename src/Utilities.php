@@ -53,4 +53,39 @@ class Utilities
         }
         return $hexdec ? hexdec($u[1]) : $u[1];
     }
+
+    /**
+     * Encode an int to a hexadecimal variable int.
+     *
+     * @param int $n the number to encode
+     * @param bool $prefix Include the var int prefix.
+     * @return string the encoded hexadecimal value of $n with endian swapped.
+     */
+    public static function varIntEncode(int $n, bool $prefix = true): string
+    {
+        if ($n < 0xfd) {
+            return bin2hex(chr($n));
+        }
+
+        $out = "";
+        $len = 0;
+        if ($n <= 0xffff) {
+            $out = "\xfd";
+            $len = 3;
+        } elseif ($n <= 0xffffffff) {
+            $out = "\xfe";
+            $len = 5;
+        } else {
+            $out = "\xff";
+            $len = 9;
+        }
+
+        for ($i = 1; $i < $len; ++$i) {
+            $out .= chr(($n >> (($i - 1) * 8)) % 256);
+        }
+        if (!$prefix) {
+            return substr(bin2hex($out), 2);
+        }
+        return bin2hex($out);
+    }
 }
