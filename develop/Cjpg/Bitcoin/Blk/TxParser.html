@@ -27,6 +27,22 @@
           title="Bitcoin BLK block file parser/reader API (v0.2)" />
     <link rel="search"
           type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
           href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
           title="Bitcoin BLK block file parser/reader API (master)" />
     <link rel="search"
@@ -47,6 +63,18 @@
                                             <option
                             value="../../../../v0.2/index.html"
                             data-version="v0.2" >v0.2</option>
+                                            <option
+                            value="../../../../v0.3/index.html"
+                            data-version="v0.3" >v0.3</option>
+                                            <option
+                            value="../../../../v0.3.1/index.html"
+                            data-version="v0.3.1" >v0.3.1</option>
+                                            <option
+                            value="../../../../v0.3.2/index.html"
+                            data-version="v0.3.2" >v0.3.2</option>
+                                            <option
+                            value="../../../../v0.3.3/index.html"
+                            data-version="v0.3.3" >v0.3.3</option>
                                             <option
                             value="../../../../master/index.html"
                             data-version="master" >Latest</option>
@@ -100,6 +128,10 @@
                         <ul class="dropdown-menu">
                         <li ><a href="../../../../v0.1/index.html" data-version="v0.1">v0.1</a></li>
                         <li ><a href="../../../../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../../../../v0.3/index.html" data-version="v0.3">v0.3</a></li>
+                        <li ><a href="../../../../v0.3.1/index.html" data-version="v0.3.1">v0.3.1</a></li>
+                        <li ><a href="../../../../v0.3.2/index.html" data-version="v0.3.2">v0.3.2</a></li>
+                        <li ><a href="../../../../v0.3.3/index.html" data-version="v0.3.3">v0.3.3</a></li>
                         <li ><a href="../../../../master/index.html" data-version="master">Latest</a></li>
                         <li class="active"><a href="../../../../develop/index.html" data-version="develop">Develop</a></li>
                         </ul>
@@ -280,7 +312,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
                     
                 </div>
                 <div class="col-md-8">
-                    <a href="#method___construct">__construct</a>(string $txid, string $hash, int $size, int $vsize, int $locktime, int $version, int $inputCount, array $inputs, int $outputCount, array $outputs, string|null $hex = null, bool $segwit = false)
+                    <a href="#method___construct">__construct</a>(string $txid, string $hash, int $size, int $vsize, int $weight, int $locktime, int $version, int $inputCount, array $inputs, int $outputCount, array $outputs, string|null $hex = null, bool $segwit = false)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -344,9 +376,9 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L126">at line 126</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L127">at line 127</a></div>
         <code>                    
-    <strong>__construct</strong>(string $txid, string $hash, int $size, int $vsize, int $locktime, int $version, int $inputCount, array $inputs, int $outputCount, array $outputs, string|null $hex = null, bool $segwit = false)
+    <strong>__construct</strong>(string $txid, string $hash, int $size, int $vsize, int $weight, int $locktime, int $version, int $inputCount, array $inputs, int $outputCount, array $outputs, string|null $hex = null, bool $segwit = false)
         </code>
     </h3>
     <div class="details">    
@@ -379,6 +411,11 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
                     <tr>
                 <td>int</td>
                 <td>$vsize</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$weight</td>
                 <td></td>
             </tr>
                     <tr>
@@ -433,7 +470,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             </div>
                     <div class="method-item">
                     <h3 id="method_fromHex">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L164">at line 164</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L165">at line 165</a></div>
         <code>        static            <a href="../../../Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a>
     <strong>fromHex</strong>(string $hex)
         </code>
@@ -484,7 +521,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             </div>
                     <div class="method-item">
                     <h3 id="method_fromStream">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L183">at line 183</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L184">at line 184</a></div>
         <code>        static            <a href="../../../Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a>
     <strong>fromStream</strong>(<a href="../../../Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a> $block)
         </code>
@@ -526,7 +563,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             </div>
                     <div class="method-item">
                     <h3 id="method_readWitnessesFromStream">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L302">at line 302</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L308">at line 308</a></div>
         <code>        static    protected        void
     <strong>readWitnessesFromStream</strong>(<a href="../../../Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a> $block, int $inputCount, array $inputs, int|null $ps, int|null $pe)
         </code>
@@ -588,7 +625,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             </div>
                     <div class="method-item">
                     <h3 id="method_readOutputsFromStream">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L337">at line 337</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L343">at line 343</a></div>
         <code>        static    protected        array
     <strong>readOutputsFromStream</strong>(<a href="../../../Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a> $block, int $outputCount)
         </code>
@@ -635,7 +672,7 @@ hexadecimal string.</p></p>            <p><p><strong>fee can't be calculated wit
             </div>
                     <div class="method-item">
                     <h3 id="method_readInputsFromStream">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L361">at line 361</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/TxParser.php#L367">at line 367</a></div>
         <code>        static    protected        array
     <strong>readInputsFromStream</strong>(<a href="../../../Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a> $block, int $inputsCount, bool $segwit)
         </code>

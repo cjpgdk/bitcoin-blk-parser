@@ -27,6 +27,22 @@
           title="Bitcoin BLK block file parser/reader API (v0.2)" />
     <link rel="search"
           type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
           href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
           title="Bitcoin BLK block file parser/reader API (master)" />
     <link rel="search"
@@ -47,6 +63,18 @@
                                             <option
                             value="../../../../v0.2/index.html"
                             data-version="v0.2" >v0.2</option>
+                                            <option
+                            value="../../../../v0.3/index.html"
+                            data-version="v0.3" >v0.3</option>
+                                            <option
+                            value="../../../../v0.3.1/index.html"
+                            data-version="v0.3.1" >v0.3.1</option>
+                                            <option
+                            value="../../../../v0.3.2/index.html"
+                            data-version="v0.3.2" >v0.3.2</option>
+                                            <option
+                            value="../../../../v0.3.3/index.html"
+                            data-version="v0.3.3" >v0.3.3</option>
                                             <option
                             value="../../../../master/index.html"
                             data-version="master" >Latest</option>
@@ -100,6 +128,10 @@
                         <ul class="dropdown-menu">
                         <li ><a href="../../../../v0.1/index.html" data-version="v0.1">v0.1</a></li>
                         <li ><a href="../../../../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../../../../v0.3/index.html" data-version="v0.3">v0.3</a></li>
+                        <li ><a href="../../../../v0.3.1/index.html" data-version="v0.3.1">v0.3.1</a></li>
+                        <li ><a href="../../../../v0.3.2/index.html" data-version="v0.3.2">v0.3.2</a></li>
+                        <li ><a href="../../../../v0.3.3/index.html" data-version="v0.3.3">v0.3.3</a></li>
                         <li ><a href="../../../../master/index.html" data-version="master">Latest</a></li>
                         <li class="active"><a href="../../../../develop/index.html" data-version="develop">Develop</a></li>
                         </ul>
@@ -129,7 +161,7 @@
 
     
     <p>        class
-    <strong>LockTime</strong>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php">View source</a>)
+    <strong>LockTime</strong>        implements        <a target="_blank" rel="noopener" href="https://www.php.net/JsonSerializable">JsonSerializable</a>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php">View source</a>)
 </p>
 
         
@@ -214,6 +246,16 @@ transaction can be included in a block.</p></p>        </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p><p>JsonSerializable implementation.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
                 </div>
                 <div class="col-md-8">
@@ -231,7 +273,7 @@ transaction can be included in a block.</p></p>        </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L37">at line 37</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L38">at line 38</a></div>
         <code>                    
     <strong>__construct</strong>(int $locktime)
         </code>
@@ -264,7 +306,7 @@ transaction can be included in a block.</p></p>        </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_height">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L48">at line 48</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L49">at line 49</a></div>
         <code>                    int
     <strong>height</strong>()
         </code>
@@ -305,7 +347,7 @@ transaction can be included in a block.</p></p>        </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_date">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L62">at line 62</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L63">at line 63</a></div>
         <code>                    <abbr title="Cjpg\Bitcoin\Blk\DateTime|bool">DateTime|bool</abbr>
     <strong>date</strong>()
         </code>
@@ -346,7 +388,7 @@ transaction can be included in a block.</p></p>        </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isHeightLock">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L75">at line 75</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L76">at line 76</a></div>
         <code>                    bool
     <strong>isHeightLock</strong>()
         </code>
@@ -378,7 +420,7 @@ transaction can be included in a block.</p></p>        </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isTimeLock">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L85">at line 85</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L86">at line 86</a></div>
         <code>                    bool
     <strong>isTimeLock</strong>()
         </code>
@@ -409,8 +451,40 @@ transaction can be included in a block.</p></p>        </div>
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L96">at line 96</a></div>
+        <code>                    int
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>JsonSerializable implementation.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L93">at line 93</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/LockTime.php#L104">at line 104</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>

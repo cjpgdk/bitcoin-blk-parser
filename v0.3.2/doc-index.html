@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Index | Bitcoin BLK block file parser/reader API</title>
+
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="fonts/doctum-font.css">
+        <script src="js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="doctum.js"></script>
+        <script async defer src="js/bootstrap.min.js"></script>
+        <script async defer src="js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+        <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (master)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/develop/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (develop)" />
+    </head>
+
+    <body id="doc-index" data-name="" data-root-path="" data-search-index-url="doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../v0.1/index.html"
+                            data-version="v0.1" >v0.1</option>
+                                            <option
+                            value="../v0.2/index.html"
+                            data-version="v0.2" >v0.2</option>
+                                            <option
+                            value="../v0.3/index.html"
+                            data-version="v0.3" >v0.3</option>
+                                            <option
+                            value="../v0.3.1/index.html"
+                            data-version="v0.3.1" >v0.3.1</option>
+                                            <option
+                            value="../v0.3.2/index.html"
+                            data-version="v0.3.2" selected>v0.3.2</option>
+                                            <option
+                            value="../v0.3.3/index.html"
+                            data-version="v0.3.3" >v0.3.3</option>
+                                            <option
+                            value="../master/index.html"
+                            data-version="master" >Latest</option>
+                                            <option
+                            value="../develop/index.html"
+                            data-version="develop" >Develop</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Bitcoin BLK block file parser/reader API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../v0.1/index.html" data-version="v0.1">v0.1</a></li>
+                        <li ><a href="../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../v0.3/index.html" data-version="v0.3">v0.3</a></li>
+                        <li ><a href="../v0.3.1/index.html" data-version="v0.3.1">v0.3.1</a></li>
+                        <li class="active"><a href="../v0.3.2/index.html" data-version="v0.3.2">v0.3.2</a></li>
+                        <li ><a href="../v0.3.3/index.html" data-version="v0.3.3">v0.3.3</a></li>
+                        <li ><a href="../master/index.html" data-version="master">Latest</a></li>
+                        <li ><a href="../develop/index.html" data-version="develop">Develop</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="namespaces.html">Namespaces</a></li>
+                    <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="traits.html">Traits</a></li>
+                    <li><a href="doc-index.html">Index</a></li>
+                    <li><a href="search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div id="page-content">
+    <div class="page-header">
+        <h1>Index</h1>
+    </div>
+
+    <ul class="pagination">
+                                    <li><a href="#letterA">A</a></li>
+                                                <li><a href="#letterB">B</a></li>
+                                                <li><a href="#letterC">C</a></li>
+                                                <li><a href="#letterD">D</a></li>
+                                                <li><a href="#letterE">E</a></li>
+                                                <li><a href="#letterF">F</a></li>
+                                                <li><a href="#letterG">G</a></li>
+                                                <li><a href="#letterH">H</a></li>
+                                                <li><a href="#letterI">I</a></li>
+                                                <li><a href="#letterJ">J</a></li>
+                                                <li><a href="#letterK">K</a></li>
+                                                <li><a href="#letterL">L</a></li>
+                                                <li><a href="#letterM">M</a></li>
+                                                <li><a href="#letterN">N</a></li>
+                                                <li><a href="#letterO">O</a></li>
+                                                <li><a href="#letterP">P</a></li>
+                                                <li class="disabled"><a href="#letterQ">Q</a></li>
+                                                <li><a href="#letterR">R</a></li>
+                                                <li><a href="#letterS">S</a></li>
+                                                <li><a href="#letterT">T</a></li>
+                                                <li class="disabled"><a href="#letterU">U</a></li>
+                                                <li><a href="#letterV">V</a></li>
+                                                <li><a href="#letterW">W</a></li>
+                                                <li class="disabled"><a href="#letterX">X</a></li>
+                                                <li class="disabled"><a href="#letterY">Y</a></li>
+                                                <li class="disabled"><a href="#letterZ">Z</a></li>
+                        </ul>
+
+    <h2 id="letterA">A</h2>
+        <dl id="indexA"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_all">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::all</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_add">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::add</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Add an item.</p></dd>        </dl><h2 id="letterB">B</h2>
+        <dl id="indexB"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>BlockParser reads the raw block data extracted from blk files.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/BlockParser.html#property_block">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>#block</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>The block bytes we read from.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_blockHash">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::blockHash</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the block hash</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_bits">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::bits</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the block bits.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_bitsHex">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::bitsHex</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the block bits as hexadecimal.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_block">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::block</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the raw block.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk/Readers.html">Cjpg\Bitcoin\Blk\Readers</a></em></dt>
+                    <dd><p>BLK File reader class.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#property_blkFolder">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>#blkFolder</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>The full path to the folder that contains the bitcoin blk files.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#method_blocks">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>::blocks</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>Gets the blocks from the current blk file.</p></dd>        </dl><h2 id="letterC">C</h2>
+        <dl id="indexC"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_count">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::count</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Count the number of items.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_current">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::current</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Get the current element.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_close">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::close</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Closes the stream.</p></dd>        </dl><h2 id="letterD">D</h2>
+        <dl id="indexD"><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_difficulty">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::difficulty</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the block difficulty.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method_date">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::date</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>Get the locked until date.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_detach">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::detach</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Get the current stream and separates it from the current instance.</p></dd>        </dl><h2 id="letterE">E</h2>
+        <dl id="indexE"><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_end">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::end</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Ends the reader and releases the underlying memory stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_eof">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::eof</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns true if the stream is at the end of the stream.</p></dd>        </dl><h2 id="letterF">F</h2>
+        <dl id="indexF"><dt><a href="Cjpg/Bitcoin/Blk/Input.html#method_fromArray">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>::fromArray</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>Create an instance of Input class from a simple array</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Money.html#method_format">
+<abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr>::format</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></em></dt>
+                    <dd><p>Format the value in {@param $unit}</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Output.html#method_fromArray">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>::fromArray</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>Create an instance of Output class from a simple array</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#method_fileName">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>::fileName</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>Gets the file name of the file that we are currently reading from.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_fromString">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::fromString</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Create a new stream from a string.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_fromFile">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::fromFile</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Create a stream from an existing file.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method_fromHex">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::fromHex</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Reads the transaction data from a hexadecimal string</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method_fromStream">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::fromStream</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Reads the transaction data from the stream.</p></dd>        </dl><h2 id="letterG">G</h2>
+        <dl id="indexG"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_get">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::get</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Get an item by {@param $key}.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_getSize">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::getSize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Get the size of the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_getContents">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::getContents</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns the remaining contents in a string</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_getMetadata">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::getMetadata</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Get stream metadata as an associative array or retrieve a specific key.</p></dd>        </dl><h2 id="letterH">H</h2>
+        <dl id="indexH"><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_hasSegwit">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::hasSegwit</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Check if the block contains any segregated witness transactions.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method_height">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::height</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>Get the locked until height.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_hash">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#hash</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction hash (differs from txid for witness transactions).</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_hex">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#hex</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The full transaction as a hexadecimal value.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Utilities.html#method_hash256">
+<abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr>::hash256</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Utilities.html"><abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr></a></em></dt>
+                    <dd><p>Run sha256 hash on $data twice</p></dd>        </dl><h2 id="letterI">I</h2>
+        <dl id="indexI"><dt>$<a href="Cjpg/Bitcoin/Blk/BaseCollection.html#property_items">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>#items</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_isEmpty">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::isEmpty</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Check if the collection is empty.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>A input in a transaction</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Input.html#method_isCoinbase">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>::isCoinbase</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>Check if this is a coinbase input.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Inputs.html"><abbr title="Cjpg\Bitcoin\Blk\Inputs">Inputs</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>The Inputs collection class.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method_isHeightLock">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::isHeightLock</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>Check if the lock time depends on block height.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method_isTimeLock">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::isTimeLock</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>Check if the lock time depends on timestamp.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_isSeekable">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::isSeekable</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns whether or not the stream is seekable.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_isWritable">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::isWritable</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns whether or not the stream is writable.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_isReadable">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::isReadable</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns whether or not the stream is readable.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_inputCount">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#inputCount</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The number of inputs contained in this transaction.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_inputs">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#inputs</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction inputs.</p></dd>        </dl><h2 id="letterJ">J</h2>
+        <dl id="indexJ"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/Input.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Inputs.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Inputs">Inputs</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Inputs.html"><abbr title="Cjpg\Bitcoin\Blk\Inputs">Inputs</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Money.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Output.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Outputs.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Outputs">Outputs</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Outputs.html"><abbr title="Cjpg\Bitcoin\Blk\Outputs">Outputs</abbr></a></em></dt>
+                    <dd><p>JsonSerializable implementation.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#method_jsonSerialize">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>::jsonSerialize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd></dd>        </dl><h2 id="letterK">K</h2>
+        <dl id="indexK"><dt>$<a href="Cjpg/Bitcoin/Blk/BaseCollection.html#property_keys">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>#keys</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>The keys in this collection.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_key">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::key</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Get the key of the current element.</p></dd>        </dl><h2 id="letterL">L</h2>
+        <dl id="indexL"><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>Transaction LockTime.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#method_loadData">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>::loadData</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>Loads the available blk files.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#method_loadData">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>::loadData</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd><p>Loads the data into the reader.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_locktime">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#locktime</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The block height or timestamp of when  the transaction can be spend.</p></dd>        </dl><h2 id="letterM">M</h2>
+        <dl id="indexM"><dt>$<a href="Cjpg/Bitcoin/Blk/BlockParser.html#property_magicBytes">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>#magicBytes</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>The magic bytes that indicates the block start and type.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_merkleRoot">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::merkleRoot</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the merkle root of the block.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_magicBytes">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::magicBytes</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the magic bytes.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>class Money</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#property_magicBytes">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>#magicBytes</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>The magic bytes that indicate a block start.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#method_moveTo">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>::moveTo</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd><p>Move to {@param $offset}.</p></dd>        </dl><h2 id="letterN">N</h2>
+        <dl id="indexN"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_next">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::next</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Move forward to next element.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_nonce">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::nonce</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the block nonce.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Output.html#property_n">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>#n</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>The output index.</p></dd>        </dl><h2 id="letterO">O</h2>
+        <dl id="indexO"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_offsetExists">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::offsetExists</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Check if an offset($key) exists.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_offsetGet">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::offsetGet</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Get the item at offset($key).</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_offsetSet">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::offsetSet</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Set/Add an item.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_offsetUnset">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::offsetUnset</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Unset an item from the list.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>A output in a transaction</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Outputs.html"><abbr title="Cjpg\Bitcoin\Blk\Outputs">Outputs</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>The Outputs collection class.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#property_offsetGetFormatter">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>#offsetGetFormatter</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd><p>A custom function to format the items in the list.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#method_offsetGet">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>::offsetGet</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd><p>Get the item at offset($key).</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_outputCount">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#outputCount</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The number of outputs contained in this transaction.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_outputs">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#outputs</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction outputs.</p></dd>        </dl><h2 id="letterP">P</h2>
+        <dl id="indexP"><dt>$<a href="Cjpg/Bitcoin/Blk/BaseCollection.html#property_position">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>#position</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>The current position of the iterator.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_previousBlock">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::previousBlock</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the previous block hash.</p></dd>        </dl><h2 id="letterR">R</h2>
+        <dl id="indexR"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_rewind">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::rewind</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Rewind the iterator to the first element.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk/Readers.html">Cjpg\Bitcoin\Blk\Readers</a></em></dt>
+                    <dd><p>Base of the reader classes.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_rewind">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::rewind</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Seek to the beginning of the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_readVarInt">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::readVarInt</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Read a variable int.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_read">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::read</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Read data from the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method_readWitnessesFromStream">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::readWitnessesFromStream</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Reads the witness data from the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method_readOutputsFromStream">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::readOutputsFromStream</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Reads the outputs of the transaction from the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method_readInputsFromStream">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::readInputsFromStream</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Reads the inputs of the transaction from the stream.</p></dd>        </dl><h2 id="letterS">S</h2>
+        <dl id="indexS"><dt>$<a href="Cjpg/Bitcoin/Blk/BlockParser.html#property_size">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>#size</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>The block size.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_strippedSize">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::strippedSize</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the stripped size of the block, that is the size of the block
+without witness data.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_size">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::size</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the size of the block in bytes.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_scriptSig">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#scriptSig</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The input script signature.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_sequence">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#sequence</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The input sequence.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Output.html#property_scriptPubKey">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>#scriptPubKey</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>The script pub key.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#method_setMagicBytes">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>::setMagicBytes</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>Set the magic bytes that indicates a block start.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Reader.html#method_setOffsetGetFormatter">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr>::setOffsetGetFormatter</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Reader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Reader">Reader</abbr></a></em></dt>
+                    <dd><p>Set the item output formatter.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk/Readers.html">Cjpg\Bitcoin\Blk\Readers</a></em></dt>
+                    <dd><p>An internal stream class for reading the blk files.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#property_stream">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>#stream</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>The underlying stream resource</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_seek">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::seek</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Seek to a position in the stream.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_size">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#size</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction size</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_segwit">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#segwit</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>Flag indicating the presence of witness data</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Utilities.html#method_sha256">
+<abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr>::sha256</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Utilities.html"><abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr></a></em></dt>
+                    <dd><p>Run sha256 hash on $data</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Utilities.html#method_swapEndian">
+<abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr>::swapEndian</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Utilities.html"><abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr></a></em></dt>
+                    <dd><p>Swap endianness of an hexadecimal string.</p></dd>        </dl><h2 id="letterT">T</h2>
+        <dl id="indexT"><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_transactions">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::transactions</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the transactions.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_transactionCount">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::transactionCount</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Get the transaction count.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_timestamp">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::timestamp</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the block timestamp.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_type">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#type</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The input type Coinbase or Script.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_txid">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#txid</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The transactions id of the spending transaction.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_tell">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::tell</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Returns the current position of the file read/write pointer</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>TxParser reads the transaction from an input of bytes (binary string) or a
+hexadecimal string.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_txid">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#txid</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction id.</p></dd>        </dl><h2 id="letterU">U</h2>
+        <dl id="indexU"><dt><a href="Cjpg/Bitcoin/Blk/Utilities.html"><abbr title="Cjpg\Bitcoin\Blk\Utilities">Utilities</abbr></a> &mdash; <em>Class in namespace <a href="Cjpg/Bitcoin/Blk.html">Cjpg\Bitcoin\Blk</a></em></dt>
+                    <dd><p>Helper Utilities</p></dd>        </dl><h2 id="letterV">V</h2>
+        <dl id="indexV"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method_valid">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::valid</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd><p>Checks if current iterator position is valid.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_version">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::version</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the block version.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_versionHex">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::versionHex</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Gets the block version as hexadecimal.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_vout">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#vout</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The output index of the spending transaction.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/LockTime.html#property_value">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>#value</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>The lock time value</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Output.html#property_value">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>#value</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>The monetary value of this output.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_vsize">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#vsize</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The virtual transaction size (differs from size for witness transactions)</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_version">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#version</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The version of this transaction.</p></dd>        </dl><h2 id="letterW">W</h2>
+        <dl id="indexW"><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method_weight">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::weight</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>The block weight.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/Input.html#property_witness">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>#witness</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd><p>The input witnesses if any.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method_write">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::write</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Write data to the stream.</p></dd><dt>$<a href="Cjpg/Bitcoin/Blk/TxParser.html#property_weight">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>#weight</a> &mdash; <em>Property in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd><p>The transaction weight</p></dd>        </dl><h2 id="letter_">_</h2>
+        <dl id="index_"><dt><a href="Cjpg/Bitcoin/Blk/BaseCollection.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BaseCollection.html"><abbr title="Cjpg\Bitcoin\Blk\BaseCollection">BaseCollection</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Initialize a new instance of the bitcoin block parser class.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/BlockParser.html#method___destruct">
+<abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr>::__destruct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/BlockParser.html"><abbr title="Cjpg\Bitcoin\Blk\BlockParser">BlockParser</abbr></a></em></dt>
+                    <dd><p>Closes the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Input.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Input.html"><abbr title="Cjpg\Bitcoin\Blk\Input">Input</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/Inputs.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Inputs">Inputs</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Inputs.html"><abbr title="Cjpg\Bitcoin\Blk\Inputs">Inputs</abbr></a></em></dt>
+                    <dd><p>Creates a new inputs collection from a simple array like structure</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd><p>Creates a new LockTime object.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/LockTime.html#method___toString">
+<abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr>::__toString</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/LockTime.html"><abbr title="Cjpg\Bitcoin\Blk\LockTime">LockTime</abbr></a></em></dt>
+                    <dd></dd><dt><a href="Cjpg/Bitcoin/Blk/Money.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></em></dt>
+                    <dd><p>Creates e new Money object from {@param $value} and {@param $unit}</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Money.html#method___toString">
+<abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr>::__toString</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></em></dt>
+                    <dd><p>Gets the value as a string.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Output.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Output.html"><abbr title="Cjpg\Bitcoin\Blk\Output">Output</abbr></a></em></dt>
+                    <dd><p>Creates the new output class object.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Outputs.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Outputs">Outputs</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Outputs.html"><abbr title="Cjpg\Bitcoin\Blk\Outputs">Outputs</abbr></a></em></dt>
+                    <dd><p>Creates a new outputs collection from a simple array like structure</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/BlkReader.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\BlkReader">BlkReader</abbr></a></em></dt>
+                    <dd><p>Initialize a new instance of the bitcoin blk reader class.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Initialize a new stream from a resource or {IStream}</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method___toString">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::__toString</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Gets the stream into a string</p></dd><dt><a href="Cjpg/Bitcoin/Blk/Readers/Stream.html#method___destruct">
+<abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr>::__destruct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/Readers/Stream.html"><abbr title="Cjpg\Bitcoin\Blk\Readers\Stream">Stream</abbr></a></em></dt>
+                    <dd><p>Closes the stream.</p></dd><dt><a href="Cjpg/Bitcoin/Blk/TxParser.html#method___construct">
+<abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Cjpg/Bitcoin/Blk/TxParser.html"><abbr title="Cjpg\Bitcoin\Blk\TxParser">TxParser</abbr></a></em></dt>
+                    <dd></dd>        </dl></div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

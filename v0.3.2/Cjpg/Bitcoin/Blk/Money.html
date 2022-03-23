@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Cjpg\Bitcoin\Blk\Money | Bitcoin BLK block file parser/reader API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+        <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (master)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/develop/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (develop)" />
+    </head>
+
+    <body id="class" data-name="class:Cjpg_Bitcoin_Blk_Money" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../v0.1/index.html"
+                            data-version="v0.1" >v0.1</option>
+                                            <option
+                            value="../../../../v0.2/index.html"
+                            data-version="v0.2" >v0.2</option>
+                                            <option
+                            value="../../../../v0.3/index.html"
+                            data-version="v0.3" >v0.3</option>
+                                            <option
+                            value="../../../../v0.3.1/index.html"
+                            data-version="v0.3.1" >v0.3.1</option>
+                                            <option
+                            value="../../../../v0.3.2/index.html"
+                            data-version="v0.3.2" selected>v0.3.2</option>
+                                            <option
+                            value="../../../../v0.3.3/index.html"
+                            data-version="v0.3.3" >v0.3.3</option>
+                                            <option
+                            value="../../../../master/index.html"
+                            data-version="master" >Latest</option>
+                                            <option
+                            value="../../../../develop/index.html"
+                            data-version="develop" >Develop</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Bitcoin BLK block file parser/reader API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../../../../v0.1/index.html" data-version="v0.1">v0.1</a></li>
+                        <li ><a href="../../../../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../../../../v0.3/index.html" data-version="v0.3">v0.3</a></li>
+                        <li ><a href="../../../../v0.3.1/index.html" data-version="v0.3.1">v0.3.1</a></li>
+                        <li class="active"><a href="../../../../v0.3.2/index.html" data-version="v0.3.2">v0.3.2</a></li>
+                        <li ><a href="../../../../v0.3.3/index.html" data-version="v0.3.3">v0.3.3</a></li>
+                        <li ><a href="../../../../master/index.html" data-version="master">Latest</a></li>
+                        <li ><a href="../../../../develop/index.html" data-version="develop">Develop</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../Cjpg.html">Cjpg</a></li><li class="backslash">\</li><li><a href="../../../Cjpg/Bitcoin.html">Bitcoin</a></li><li class="backslash">\</li><li><a href="../../../Cjpg/Bitcoin/Blk.html">Blk</a></li><li class="backslash">\</li><li>Money</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>Money    
+            </h1>
+    </div>
+
+    
+    <p>        class
+    <strong>Money</strong>        implements        <a target="_blank" rel="noopener" href="https://www.php.net/JsonSerializable">JsonSerializable</a>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.3.2/src/Money.php">View source</a>)
+</p>
+
+        
+    
+        
+
+            <div class="description">
+            <p><p>class Money</p></p>                    </div>
+            
+        
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___construct">__construct</a>(int $value, <abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
+        
+                                            <p><p>Creates e new Money object from {@param $value} and {@param $unit}</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_format">format</a>(<abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
+        
+                                            <p><p>Format the value in {@param $unit}</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p><p>JsonSerializable implementation.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p><p>Gets the value as a string.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.3.2/src/Money.php#L22">at line 22</a></div>
+        <code>                    
+    <strong>__construct</strong>(int $value, <abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Creates e new Money object from {@param $value} and {@param $unit}</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr></td>
+                <td>$unit</td>
+                <td><p>The unit that the {@param $value} is in.</p></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_format">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.3.2/src/Money.php#L35">at line 35</a></div>
+        <code>                    <abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr>
+    <strong>format</strong>(<abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Format the value in {@param $unit}</p></p>                <p><p><em>Note that the return value may be a scientific notation 1 Sat = 1.0E-6 Cent</em></p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr></td>
+                <td>$unit</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.3.2/src/Money.php#L45">at line 45</a></div>
+        <code>                    int
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>JsonSerializable implementation.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/v0.3.2/src/Money.php#L55">at line 55</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Gets the value as a string.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

@@ -27,6 +27,22 @@
           title="Bitcoin BLK block file parser/reader API (v0.2)" />
     <link rel="search"
           type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.1/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.1)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.2/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.2)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
+          href="https://cjpgdk.github.io/bitcoin-blk-parser/v0.3.3/opensearch.xml"
+          title="Bitcoin BLK block file parser/reader API (v0.3.3)" />
+    <link rel="search"
+          type="application/opensearchdescription+xml"
           href="https://cjpgdk.github.io/bitcoin-blk-parser/master/opensearch.xml"
           title="Bitcoin BLK block file parser/reader API (master)" />
     <link rel="search"
@@ -47,6 +63,18 @@
                                             <option
                             value="../../../../v0.2/index.html"
                             data-version="v0.2" >v0.2</option>
+                                            <option
+                            value="../../../../v0.3/index.html"
+                            data-version="v0.3" >v0.3</option>
+                                            <option
+                            value="../../../../v0.3.1/index.html"
+                            data-version="v0.3.1" >v0.3.1</option>
+                                            <option
+                            value="../../../../v0.3.2/index.html"
+                            data-version="v0.3.2" >v0.3.2</option>
+                                            <option
+                            value="../../../../v0.3.3/index.html"
+                            data-version="v0.3.3" >v0.3.3</option>
                                             <option
                             value="../../../../master/index.html"
                             data-version="master" >Latest</option>
@@ -100,6 +128,10 @@
                         <ul class="dropdown-menu">
                         <li ><a href="../../../../v0.1/index.html" data-version="v0.1">v0.1</a></li>
                         <li ><a href="../../../../v0.2/index.html" data-version="v0.2">v0.2</a></li>
+                        <li ><a href="../../../../v0.3/index.html" data-version="v0.3">v0.3</a></li>
+                        <li ><a href="../../../../v0.3.1/index.html" data-version="v0.3.1">v0.3.1</a></li>
+                        <li ><a href="../../../../v0.3.2/index.html" data-version="v0.3.2">v0.3.2</a></li>
+                        <li ><a href="../../../../v0.3.3/index.html" data-version="v0.3.3">v0.3.3</a></li>
                         <li ><a href="../../../../master/index.html" data-version="master">Latest</a></li>
                         <li class="active"><a href="../../../../develop/index.html" data-version="develop">Develop</a></li>
                         </ul>
@@ -129,7 +161,7 @@
 
     
     <p>        class
-    <strong>Money</strong>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php">View source</a>)
+    <strong>Money</strong>        implements        <a target="_blank" rel="noopener" href="https://www.php.net/JsonSerializable">JsonSerializable</a>        (<a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php">View source</a>)
 </p>
 
         
@@ -167,6 +199,56 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_add">add</a>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $value)
+        
+                                            <p><p>Add $value to the current.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sub">sub</a>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $value)
+        
+                                            <p><p>Subtract $value from the current.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_mul">mul</a>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $num)
+        
+                                            <p><p>Multiply the current value with $num.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_div">div</a>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $num, int $mode = PHP_ROUND_HALF_UP)
+        
+                                            <p><p>Divide the current value with $num.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p><p>JsonSerializable implementation.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
                 </div>
                 <div class="col-md-8">
@@ -183,7 +265,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L20">at line 20</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L22">at line 22</a></div>
         <code>                    
     <strong>__construct</strong>(int $value, <abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
         </code>
@@ -221,7 +303,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_format">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L33">at line 33</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L35">at line 35</a></div>
         <code>                    <abbr title="Cjpg\Bitcoin\Blk\int|float">int|float</abbr>
     <strong>format</strong>(<abbr title="Cjpg\Bitcoin\Blk\MoneyUnit">MoneyUnit</abbr> $unit = MoneyUnit::Sat)
         </code>
@@ -262,8 +344,215 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_add">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L48">at line 48</a></div>
+        <code>                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+    <strong>add</strong>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Add $value to the current.</p></p>                <p><p><em>$value must be in satoshi or a Money object</em></p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr></td>
+                <td>$value</td>
+                <td><p>The number of satoshi to add, or a Money object</p></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sub">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L62">at line 62</a></div>
+        <code>                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+    <strong>sub</strong>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Subtract $value from the current.</p></p>                <p><p><em>$value must be in satoshi or a Money object</em></p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr></td>
+                <td>$value</td>
+                <td><p>The number of satoshi to subtract, or a Money object</p></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mul">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L74">at line 74</a></div>
+        <code>                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+    <strong>mul</strong>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $num)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Multiply the current value with $num.</p></p>                        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr></td>
+                <td>$num</td>
+                <td><p>The multiplier</p></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_div">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L91">at line 91</a></div>
+        <code>                    <a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a>
+    <strong>div</strong>(<abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr> $num, int $mode = PHP_ROUND_HALF_UP)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Divide the current value with $num.</p></p>                <p><p><em>Note that the resulting value will be rounded using PHP round method
+and then cast to int.</em></p></p>        
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Cjpg\Bitcoin\Blk\int|self">int|self</abbr></td>
+                <td>$num</td>
+                <td><p>The multiplier</p></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$mode</td>
+                <td><p>Use one of the PHP round constants PHP_ROUND_HALF_UP,
+PHP_ROUND_HALF_EVEN, PHP_ROUND_HALF_ODD or PHP_ROUND_HALF_UP.</p></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Cjpg/Bitcoin/Blk/Money.html"><abbr title="Cjpg\Bitcoin\Blk\Money">Money</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L121">at line 121</a></div>
+        <code>                    int
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>JsonSerializable implementation.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L43">at line 43</a></div>
+        <div class="location"><a href="https://github.com/cjpgdk/bitcoin-blk-parser/blob/develop/src/Money.php#L131">at line 131</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
