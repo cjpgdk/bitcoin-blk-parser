@@ -74,7 +74,7 @@ final class BlockParserTest extends TestCase
             $this->assertSame(Data::$blocks[$idx]['difficulty'], (int)$block->difficulty());
 
             // strippedsize
-            $this->assertSame(Data::$blocks[$idx]['strippedsize'], $block->strippedSize());
+            $this->assertSame(Data::$blocks[$idx]['strippedsize'], $block->strippedSize(), "strippedsize error, HASH: {$block->blockHash()}");
 
             // weight
             $this->assertSame(Data::$blocks[$idx]['weight'], $block->weight());

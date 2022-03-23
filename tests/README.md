@@ -14,7 +14,7 @@ The file is used for general tests an contains the blocks
 - 00000000000000000004e6c1eec8281d333da8f893400125132dd60c5ff49fa7
 
 ```sh
-wget https://cjpgdk.github.io/bitcoin-blk-parser/data/blkmain0.dat -o tests/data/blkmain0.dat
+wget https://cjpgdk.github.io/bitcoin-blk-parser/data/blkmain0.dat -O tests/data/blkmain0.dat
 ```
 
 
@@ -37,7 +37,7 @@ BLOCKS="000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f \
        00000000000000000004e6c1eec8281d333da8f893400125132dd60c5ff49fa7"
 
 for block in ${BLOCKS}; do
-    wget https://cjpgdk.github.io/bitcoin-blk-parser/data/${block}.block -o tests/data/${block}.block
+    wget https://cjpgdk.github.io/bitcoin-blk-parser/data/${block}.block -O tests/data/${block}.block
 done
 
 ```

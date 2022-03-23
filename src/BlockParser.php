@@ -123,7 +123,11 @@ class BlockParser
         $txVSize = 0;
         foreach ($this->transactions() as $tx) {
             $txSize += $tx->size;
-            $txVSize += $tx->vsize;
+            if ($tx->size != $tx->vsize) {
+                $txVSize += (int)(($tx->weight - $tx->size) / 3);
+            } else {
+                $txVSize += $tx->vsize;
+            }
         }
         return $this->size() - ($txSize - $txVSize);
     }
@@ -308,6 +312,35 @@ class BlockParser
         $this->size = $this->magicBytes = null;
     }
 
+    /**
+     * Write the binary block to a file.
+     *
+     * This will write the block to $file in the same format as when reading a
+     * blk file, [MagicBytes][Size][BlockData].
+     *
+     * @param string $file
+     * @return void
+     */
+    public function writeToFile(string $file): void
+    {
+        // set start of block
+        $block = $this->magicBytes();
+
+        // construct the block size, and append it to the block.
+        $size = Utilities::varIntEncode($this->block->getSize() ?? 0, false);
+        $size = str_pad($size, 8, '0', STR_PAD_RIGHT);
+        $block .= hex2bin($size);
+
+        // set the actual block data.
+        $this->block->rewind();
+        $block .= $this->block->getContents();
+
+        // and write the block to the file.
+        if (($fp = fopen($file, 'w+b')) !== false) {
+            fwrite($fp, $block);
+            fclose($fp);
+        }
+    }
 
     /**
      * Closes the stream.

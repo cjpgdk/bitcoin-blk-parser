@@ -87,7 +87,7 @@ class LockTime implements JsonSerializable
     {
         return $this->value >= 500000000;
     }
-    
+
     /**
      * JsonSerializable implementation.
      *
