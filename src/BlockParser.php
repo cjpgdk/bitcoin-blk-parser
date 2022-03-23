@@ -123,7 +123,11 @@ class BlockParser
         $txVSize = 0;
         foreach ($this->transactions() as $tx) {
             $txSize += $tx->size;
-            $txVSize += $tx->vsize;
+            if ($tx->size != $tx->vsize) {
+                $txVSize += (int)(($tx->weight - $tx->size) / 3);
+            } else {
+                $txVSize += $tx->vsize;
+            }
         }
         return $this->size() - ($txSize - $txVSize);
     }
