@@ -14,7 +14,7 @@ use JsonSerializable;
  * **LockTime < 500000000** Specifies the block height after which this
  * transaction can be included in a block.
  *
- * **LockTime >= 500000000** pecifies the UNIX timestamp after which this
+ * **LockTime >= 500000000** Specifies the UNIX timestamp after which this
  * transaction can be included in a block.
  *
  * @link https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki BIP 113

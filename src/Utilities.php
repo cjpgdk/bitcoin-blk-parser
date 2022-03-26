@@ -10,7 +10,7 @@ namespace Cjpg\Bitcoin\Blk;
 class Utilities
 {
     /**
-     * Run sha256 hash on $data twice
+     * Run sha256 hash on $data twice.
      *
      * @param string $data
      * @param bool $raw If true return the raw binary data.
@@ -23,7 +23,7 @@ class Utilities
     }
 
     /**
-     * Run sha256 hash on $data
+     * Run sha256 hash on $data.
      *
      * @param string $data
      * @param bool $raw If true return the raw binary data.
@@ -57,7 +57,7 @@ class Utilities
     /**
      * Encode an int to a hexadecimal variable int.
      *
-     * @param int $n the number to encode
+     * @param int $n the number to encode.
      * @param bool $prefix Include the var int prefix.
      * @return string the encoded hexadecimal value of $n with endian swapped.
      */

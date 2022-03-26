@@ -70,7 +70,7 @@ class BlkReader extends Reader
      * foreach($blkReader as $reader) {
      *
      *     // $reader instance of BlkReader
-     *     foreach($blkFile->blocks() as $idx => $block) {
+     *     foreach($reader->blocks() as $idx => $block) {
      *
      *         // $idx is the block number in the blk file.
      *         // INDEX STARTS FROM 0!
@@ -88,6 +88,7 @@ class BlkReader extends Reader
      */
     public function blocks(): Generator
     {
+        // creates the stream using the file as resource.
         $fStream = Stream::fromFile($this->current());
         if (!$fStream) {
             throw new RuntimeException("Unable read from file [{$this->current()}]");
@@ -95,14 +96,16 @@ class BlkReader extends Reader
         $idx = 0;
         while ($fStream->read(4) == $this->magicBytes) {
             $blocksize = Utilities::swapEndian(bin2hex($fStream->read(4)));
-
+            // Note that BlockParser creates a new
+            // MemoryStream from the readed bytes.
             yield $idx++ => new BlockParser(
                 $fStream->read($blocksize),
                 $blocksize,
                 $this->magicBytes
             );
         }
-
+        // done reading from the file
+        // so we close the stream.
         $fStream->close();
     }
 
@@ -131,7 +134,6 @@ class BlkReader extends Reader
         $this->magicBytes = $magicBytes;
     }
 
-
     /**
      * Loads the available blk files.
      *
@@ -144,11 +146,11 @@ class BlkReader extends Reader
             return $this;
         }
         $items = array_map(function ($item) {
-                // This allows input folder to be '/path../' and '/path..'
-                return ltrim(
-                    str_replace($this->blkFolder, '', $item),
-                    DIRECTORY_SEPARATOR
-                );
+            // This allows input folder to be '/path../' and '/path..'
+            return ltrim(
+                str_replace($this->blkFolder, '', $item),
+                DIRECTORY_SEPARATOR
+            );
         }, $files);
         parent::__construct($items);
 

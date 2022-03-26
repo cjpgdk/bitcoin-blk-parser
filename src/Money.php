@@ -14,7 +14,7 @@ class Money implements JsonSerializable
     private int $value;
 
     /**
-     * Creates e new Money object from {@param $value} and {@param $unit}
+     * Creates a new Money object from {@param $value} and {@param $unit}
      *
      * @param int $value
      * @param MoneyUnit $unit The unit that the {@param $value} is in.
@@ -100,7 +100,8 @@ class Money implements JsonSerializable
     }
 
     /**
-     * Ensure value is an int
+     * Ensure value is an int.
+     *
      * @param int|self $num
      * @return int
      */

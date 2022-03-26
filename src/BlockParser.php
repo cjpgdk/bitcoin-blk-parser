@@ -272,7 +272,7 @@ class BlockParser
      *
      * *Note that magic bytes and size variable are striped from the block.*
      *
-     * @param bool $hex get the block as hex string or binary string.
+     * @param bool $hex get the block as hex or binary string.
      * @return string
      */
     public function block(bool $hex = false): string
@@ -311,6 +311,7 @@ class BlockParser
 
     /**
      * Ends the reader and releases the underlying memory stream.
+     *
      * @return void
      */
     public function end(): void

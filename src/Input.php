@@ -86,7 +86,7 @@ class Input implements JsonSerializable
      */
     public function isCoinbase(): bool
     {
-        return $this->type == InputType::COINBASE;
+        return $this->type === InputType::COINBASE;
     }
 
     /**

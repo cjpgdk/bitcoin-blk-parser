@@ -8,7 +8,7 @@ use Cjpg\Bitcoin\Script\ScriptPubKey;
 use JsonSerializable;
 
 /**
- * A output in a transaction
+ * An output in a transaction
  */
 class Output implements JsonSerializable
 {
@@ -34,7 +34,7 @@ class Output implements JsonSerializable
     /**
      * Creates the new output class object.
      *
-     * @param int $value he monetary value of this output in Satoshis.
+     * @param int $value he monetary value of this output in satoshi.
      * @param int $n The output index.
      * @param string $scriptPubKey The script pub key in hexadecimal.
      */

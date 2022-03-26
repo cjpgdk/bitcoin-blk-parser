@@ -12,8 +12,6 @@ use RuntimeException;
  * hexadecimal string.
  *
  * **fee can't be calculated without having access to the spending output.**
- *
- * @todo make output value into a Money object for simple calculations.
  */
 class TxParser
 {
@@ -32,14 +30,14 @@ class TxParser
     public readonly string $hash;
 
     /**
-     * The transaction size
+     * The transaction size.
      *
      * @var int
      */
     public readonly int $size;
 
     /**
-     * The virtual transaction size (differs from size for witness transactions)
+     * The virtual transaction size (differs from size for witness transactions).
      *
      * @var int
      */
@@ -102,13 +100,14 @@ class TxParser
     public readonly ?string $hex;
 
     /**
-     * The transaction weight
+     * The transaction weight.
      *
      * @var int
      */
     public readonly int $weight;
 
     /**
+     * Create a new instance of the TxParser class.
      *
      * @param string $txid
      * @param string $hash
@@ -156,11 +155,11 @@ class TxParser
     }
 
     /**
-     * Reads the transaction data from a hexadecimal string
+     * Reads the transaction data from a hexadecimal string.
      *
      * @param string $hex
      * @return \Cjpg\Bitcoin\Blk\TxParser
-     * @throws RuntimeException
+     * @throws RuntimeException Unable to load transaction data into memory.
      */
     public static function fromHex(string $hex): TxParser
     {
