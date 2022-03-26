@@ -293,12 +293,19 @@ class BlockParser
     }
 
     /**
-     * Gets the magic bytes.
+     * Gets/Sets the magic bytes.
      *
+     * If argument $magicBytes is used and has a non NULL value it will
+     * override the current magic bytes value.
+     *
+     * @param string|null $magicBytes If not NULL sets the magic bytes.
      * @return string|null Binary string.
      */
-    public function magicBytes(): ?string
+    public function magicBytes(?string $magicBytes = null): ?string
     {
+        if (!is_null($magicBytes)) {
+            $this->magicBytes = $magicBytes;
+        }
         return $this->magicBytes;
     }
 
